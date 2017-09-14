@@ -27,6 +27,17 @@ load_plugin_textdomain('google-analytics', false, plugin_basename(dirname(__FILE
 require_once GOOGLEANALYTICS_PATH . 'source/php/Vendor/Psr4ClassLoader.php';
 require_once GOOGLEANALYTICS_PATH . 'Public.php';
 
+// Acf auto import and export
+add_action('plugins_loaded', function () {
+    $acfExportManager = new \AcfExportManager\AcfExportManager();
+    $acfExportManager->setTextdomain('google-analytics');
+    $acfExportManager->setExportFolder(GOOGLEANALYTICS_PATH . 'acf-fields/');
+    $acfExportManager->autoExport(array(
+        'google-analytics' => 'group_56c5c4d919d29'
+    ));
+    $acfExportManager->import();
+});
+
 // Instantiate and register the autoloader
 $loader = new GoogleAnalytics\Vendor\Psr4ClassLoader();
 $loader->addPrefix('GoogleAnalytics', GOOGLEANALYTICS_PATH);
