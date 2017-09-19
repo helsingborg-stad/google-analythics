@@ -3,12 +3,12 @@
     <div class="notice" style="display:none;"></div>
     <?php if ($service_key == false): ?>
         <div class="service-account">
-        <p><?php _e('To track and display statistics from Google Analytics you need to connect a Service Account with read abilities to the desired property. <br>Enter the contents from your Service Account JSON-file below.', 'google-analytics' ); ?></p>
+        <p><?php _e('To track and display statistics from Google Analytics you need to connect a Service Account with read abilities to the desired property. <br>Enter the contents from your Service Accounts private key JSON-file below.', 'google-analytics' ); ?></p>
             <form method="post" id="save-service-account" action="/wp-admin/admin-ajax.php">
                 <table class="form-table">
                     <tr>
                         <th scope="row">
-                            <label for="service_account_key"><?php _e('Service Account JSON', 'google-analytics' )?></label>
+                            <label for="service_account_key"><?php _e('Private key', 'google-analytics' )?></label>
                         </th>
                         <td>
                             <textarea name="service_account_key" rows="6" cols="60" /></textarea>
