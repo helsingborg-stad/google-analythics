@@ -29,6 +29,7 @@ class Settings
             }
         }
 
+        $notice = '<div class="notice is-dismissible" style="display:none;"></div>';
         $service_key = get_option('options_google_analytics_acc_key');
         $tracked_property = get_option('options_google_analytics_ua');
 
@@ -38,23 +39,29 @@ class Settings
             $service_key = json_decode($service_key, true);
             $account_email = (!empty($service_key['client_email'])) ? $service_key['client_email'] : '';
 
-            // Creates a new authenticated Google client
-            $client = new \Google_Client();
-            $client->setAuthConfig($service_key);
-            // Set the scopes required for the API
-            $client->addScope(\Google_Service_Analytics::ANALYTICS_READONLY);
-            $client->setSubject($account_email);
-            $analytics_service = new \Google_Service_Analytics($client);
-            $web_properties = $analytics_service->management_webproperties->listManagementWebproperties('~all');
+            try {
+                // Creates a new authenticated Google client
+                $client = new \Google_Client();
+                $client->setAuthConfig($service_key);
+                // Set the scopes required for the API
+                $client->addScope(\Google_Service_Analytics::ANALYTICS_READONLY);
+                $client->setSubject($account_email);
+                $analytics_service = new \Google_Service_Analytics($client);
 
-            if (!empty($web_properties->items)) {
-                foreach ($web_properties->items as $item) {
-                    $properties[] = array(
-                                        'id'   => $item->id,
-                                        'name' => $item->name,
-                                        'view' => $item->defaultProfileId
-                                    );
+                $web_properties = $analytics_service->management_webproperties->listManagementWebproperties('~all');
+                if (!empty($web_properties->items)) {
+                    foreach ($web_properties->items as $item) {
+                        $properties[] = array(
+                                            'id'   => $item->id,
+                                            'name' => $item->name,
+                                            'view' => $item->defaultProfileId
+                                        );
+                    }
                 }
+            } catch (\Google_Service_Exception $e) {
+                $service_key = '';
+                $notice = '<div class="notice error is-dismissible"><p>' . __('Invalid Service Account', 'google-analytics') . '</p></div>';
+                delete_option('options_google_analytics_acc_key');
             }
         }
 

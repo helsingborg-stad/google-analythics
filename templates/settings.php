@@ -1,6 +1,8 @@
 <div class="wrap">
     <h1><?php _e('Google Analytics settings', 'google-analytics' ); ?></h1>
-    <div class="notice" style="display:none;"></div>
+
+    <?php echo $notice; ?>
+
     <?php if ($service_key == false): ?>
         <div class="service-account">
         <p><?php _e('To track and display statistics from Google Analytics you need to connect a Service Account with read abilities to the desired property. <br>Enter the contents from your Service Accounts private key JSON-file below.', 'google-analytics' ); ?></p>
