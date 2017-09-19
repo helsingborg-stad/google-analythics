@@ -37,6 +37,7 @@
                 </select>
                 <p class="submit">
                     <input name='submit' type='submit' class='button-primary' value='<?php _e('Save', 'google-analytics');  ?>' />
+                    <input name='reset_credentials' type='submit' class='button' value='<?php _e('Reset credentials', 'google-analytics');  ?>' />
                 </p>
             </form>
         </div>
