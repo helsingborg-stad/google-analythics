@@ -11,11 +11,26 @@ class Settings
     }
 
     /**
+     * Adds a settings page for the plugin.
+     */
+    public function addSettingsFields()
+    {
+        add_submenu_page(
+            'options-general.php',
+            __('Google Analytics', 'google-analytics'),
+            __('Google Analytics', 'google-analytics'),
+            'manage_options',
+            'google-analytics',
+            array($this, 'analyticsSettingsMarkup')
+        );
+    }
+
+    /**
      * Callback for the settings page.
      */
     public function analyticsSettingsMarkup()
     {
-        // Return if Google_Client is not loaded
+        // Bail if Google_Client is not loaded
         if (!class_exists('\\Google_Client')) {
             echo '<div class="wrap"><div class="notice error is-dismissible"><p>Install library <strong>Google APIs Client Library for PHP</strong> to continue.</p></div></div>';
             return;
@@ -23,7 +38,7 @@ class Settings
 
         // Update options
         if (isset($_REQUEST['track_property']) && current_user_can('manage_options') && wp_verify_nonce($_REQUEST['save-tracked-property'], 'save')) {
-            if (isset($_REQUEST['reset_credentials'])) {
+            if (isset($_REQUEST['reset_settings'])) {
                 // Delete options from db
                 delete_option('options_google_analytics_ua');
                 delete_option('options_google_analytics_view');
@@ -75,27 +90,15 @@ class Settings
         include GOOGLEANALYTICS_TEMPLATE_PATH . 'settings.php';
     }
 
+    /**
+     * Ajax method to save private key JSON
+     */
     public function saveAccountKey()
     {
         if (!isset($_POST['key'])) {
             wp_send_json_error(__('JSON key contents is missing', 'google-analytics'));
         }
         update_option('options_google_analytics_acc_key', json_encode($_POST['key']));
-        wp_send_json_success(__('Request succeeded', 'google-analytics'));
-    }
-
-    /**
-     * Adds a settings page for Google Analytics.
-     */
-    public function addSettingsFields()
-    {
-        add_submenu_page(
-            'options-general.php',
-            __('Google Analytics', 'google-analytics'),
-            __('Google Analytics', 'google-analytics'),
-            'manage_options',
-            'google-analytics',
-            array($this, 'analyticsSettingsMarkup')
-        );
+        wp_send_json_success(__('Success', 'google-analytics'));
     }
 }

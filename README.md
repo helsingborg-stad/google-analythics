@@ -1,7 +1,7 @@
 # Google Analytics
 
 Plugin to integrate Google Analytics tracking and display statistics on the admin dashboard.
-It requires a Google Service Account with read abilities connected to the desired Google Analytics property.
+It requires a Google Service Account with read permissions connected to the desired Google Analytics web property.
 
 ## Getting started
 

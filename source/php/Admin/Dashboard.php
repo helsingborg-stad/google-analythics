@@ -11,8 +11,8 @@ class Dashboard
 	}
 
 	/**
-	 * Add a widget to the dashboard.
-	 * This function is hooked into the 'wp_dashboard_setup' action below.
+	 * Add widget to the dashboard.
+	 * @return void
 	 */
 	function createDashboardWidgets()
 	{
@@ -28,12 +28,16 @@ class Dashboard
 	}
 
 	/**
-	 * Create the function to output the contents of our Dashboard Widget.
+	 * Dislay div container
+	 * @return void
 	 */
 	public function dashboardCallback() {
 		echo '<div id="line-chart-container"></div>';
 	}
 
+	/**
+	 * Ajax method to fetch access token from Google Analytics
+	 */
 	public function fetchAccessToken()
 	{
     	$service_key = json_decode(get_option('_ga_service_account_key'), true);
