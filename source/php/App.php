@@ -53,7 +53,7 @@ class App
 
         $property_view = get_option('options_google_analytics_view');
 
-        wp_enqueue_script('google-analytics', GOOGLEANALYTICS_URL . '/dist/js/google-analytics.dev.js', '', '1.0.0', true);
+        wp_enqueue_script('google-analytics', GOOGLEANALYTICS_URL . '/dist/js/google-analytics.min.js', '', '1.0.0', true);
         wp_localize_script('google-analytics', 'googleanalytics', array(
             'google_analytics_view' => $property_view,
             'invalid_json' => __('Not valid JSON', 'google-analytics')
