@@ -15,6 +15,13 @@ class Settings
      */
     public function analyticsSettingsMarkup()
     {
+        // Return if Google_Client is not loaded
+        if (!class_exists('\\Google_Client')) {
+            echo '<div class="wrap"><div class="notice error is-dismissible"><p>Install library <strong>Google APIs Client Library for PHP</strong> to continue.</p></div></div>';
+            return;
+        }
+
+        // Update options
         if (isset($_REQUEST['track_property']) && current_user_can('manage_options') && wp_verify_nonce($_REQUEST['save-tracked-property'], 'save')) {
             if (isset($_REQUEST['reset_credentials'])) {
                 // Delete options from db
