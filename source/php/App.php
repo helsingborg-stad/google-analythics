@@ -6,11 +6,10 @@ class App
 {
     public function __construct()
     {
-        new Options();
-        new Dashboard();
+        new Admin\Settings();
+        new Admin\Dashboard();
 
         add_action('wp_enqueue_scripts', array($this, 'googleAnalytics'), 999);
-        add_action('admin_enqueue_scripts', array($this, 'enqueueStyles'));
         add_action('admin_enqueue_scripts', array($this, 'enqueueScripts'));
     }
 
@@ -26,9 +25,7 @@ class App
             return;
         }
 
-        wp_register_script('google-analytics', 'https://www.google-analytics.com/analytics.js', '', '1.0.0', true);
-        wp_enqueue_script('google-analytics');
-
+        wp_enqueue_script('google-analytics', 'https://www.google-analytics.com/analytics.js', '', '1.0.0', true);
         add_filter('script_loader_tag', function ($tag, $handle) use ($gaUser) {
             if ($handle != 'google-analytics') {
                 return $tag;
@@ -44,39 +41,37 @@ class App
     }
 
     /**
-     * Enqueue required style
-     * @return void
-     */
-    public function enqueueStyles()
-    {
-
-    }
-
-    /**
      * Enqueue required scripts
      * @return void
      */
     public function enqueueScripts()
     {
-        wp_register_script('analytics-dashboard', GOOGLEANALYTICS_URL . '/dist/js/google-analytics.dev.js', '', '1.0.0', true);
-        wp_enqueue_script('analytics-dashboard');
+        $tracked_property = json_decode(get_option('_ga_tracked_property'), true);
+
+        wp_enqueue_script('google-analytics', GOOGLEANALYTICS_URL . '/dist/js/google-analytics.dev.js', '', '1.0.0', true);
+        wp_localize_script('google-analytics', 'googleanalytics', array(
+            'google_analytics_view' => (!empty($tracked_property['view'])) ? $tracked_property['view'] : '',
+            'invalid_json' => __('Not valid JSON', 'google-analytics')
+        ));
+        wp_enqueue_script('google-analytics');
 
         add_filter('script_loader_tag', function ($tag, $handle) {
-            if ($handle != 'analytics-dashboard') {
+            if ($handle != 'google-analytics') {
                 return $tag;
             }
 
-            $lib = "<script>
-                        (function(w,d,s,g,js,fs){
-                          g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
-                          js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
-                          js.src='https://apis.google.com/js/platform.js';
-                          fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
-                        }(window,document,'script'));
-                    </script>";
+            $embed_script = "
+            <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+            <script>
+                    (function(w,d,s,g,js,fs){
+                        g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+                        js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+                        js.src='https://apis.google.com/js/platform.js';
+                        fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+                    }(window,document,'script'));
+                </script>";
 
-            return $lib . str_replace(' src', ' async defer src', $tag);
+            return $embed_script . str_replace(' src', ' async defer src', $tag);
         }, 10, 2);
-
     }
 }
