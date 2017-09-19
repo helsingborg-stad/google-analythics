@@ -46,6 +46,11 @@ class App
      */
     public function enqueueScripts()
     {
+        $screen = get_current_screen();
+        if ($screen->base != 'dashboard' && $screen->base != 'settings_page_google-analytics') {
+            return;
+        }
+
         $property_view = get_option('options_google_analytics_view');
 
         wp_enqueue_script('google-analytics', GOOGLEANALYTICS_URL . '/dist/js/google-analytics.dev.js', '', '1.0.0', true);
