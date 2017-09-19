@@ -26,6 +26,9 @@ load_plugin_textdomain('google-analytics', false, plugin_basename(dirname(__FILE
 
 require_once GOOGLEANALYTICS_PATH . 'source/php/Vendor/Psr4ClassLoader.php';
 require_once GOOGLEANALYTICS_PATH . 'Public.php';
+if (file_exists(GOOGLEANALYTICS_PATH . 'vendor/autoload.php')) {
+	require_once GOOGLEANALYTICS_PATH . 'vendor/autoload.php';
+}
 
 // Acf auto import and export
 add_action('plugins_loaded', function () {
