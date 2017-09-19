@@ -1,5 +1,5 @@
 {
-  "name": "google-analythics",
+  "name": "helsingborg-stad/google-analythics",
   "version": "1.0.0",
   "description": "Plugin to integrate Google Analytics and display simple statistics.",
   "main": "",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Svanmark/Wordpress-Plugin-Boilerplate.git"
+    "url": "https://github.com/helsingborg-stad/google-analythics.git"
   },
   "author": "Jonatan Hanson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Svanmark/Wordpress-Plugin-Boilerplate/issues"
+    "url": "https://github.com/helsingborg-stad/google-analythics/issues"
   },
-  "homepage": "https://github.com/Svanmark/Wordpress-Plugin-Boilerplate",
+  "homepage": "https://github.com/helsingborg-stad/google-analythics",
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^3.1.0",
