@@ -1,0 +1,21 @@
+{
+    "name": "helsingborg-stad/google-analytics",
+    "description": "Plugin to integrate Google Analytics and display simple statistics.",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jonatan Hanson",
+            "email": "jonatan.hanson@hiq.se"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/google/google-api-php-client.git"
+        }
+    ],
+    "require": {
+        "google/apiclient": "^2.0"
+    }
+}
