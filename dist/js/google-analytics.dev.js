@@ -1,51 +1,115 @@
 var GoogleAnalytics = {};
 
-gapi.analytics.ready(function() {
-  console.log('gapi Init');
+GoogleAnalytics = GoogleAnalytics || {};
+GoogleAnalytics.Admin = GoogleAnalytics.Admin || {};
 
-  // Step 3: Authorize the user.
+GoogleAnalytics.Admin.Dashboard = (function ($) {
 
-  var CLIENT_ID = '';
+    function Dashboard() {
+        if (pagenow !== 'dashboard') {
+            return;
+        }
 
-  gapi.analytics.auth.authorize({
-    container: 'auth-button',
-    clientid: CLIENT_ID,
-  });
+        // Get access token and initialize analytics data chart
+        $.when($.ajax({
+            url: ajaxurl,
+            type: 'post',
+            data: {
+                action : 'fetch_access_token'
+            }
+        })).then(function(data, textStatus, jqXHR) {
+            gapi.analytics.ready(function() {
+                // Authorize the user with an access token
+                gapi.analytics.auth.authorize({
+                    'serverAuth': {
+                    'access_token': data
+                    }
+                });
 
-  // Step 4: Create the view selector.
-
-  var viewSelector = new gapi.analytics.ViewSelector({
-    container: 'view-selector'
-  });
-
-  // Step 5: Create the timeline chart.
-
-  var timeline = new gapi.analytics.googleCharts.DataChart({
-    reportType: 'ga',
-    query: {
-      'dimensions': 'ga:date',
-      'metrics': 'ga:sessions',
-      'start-date': '30daysAgo',
-      'end-date': 'yesterday',
-    },
-    chart: {
-      type: 'LINE',
-      container: 'timeline'
+                // Creates a new DataChart instance showing sessions
+                var dataChart = new gapi.analytics.googleCharts.DataChart({
+                    query: {
+                        'ids': 'ga:' + googleanalytics.google_analytics_view,
+                        'start-date': '30daysAgo',
+                        'end-date': 'today',
+                        'metrics': 'ga:sessions,ga:users',
+                        'dimensions': 'ga:date'
+                    },
+                    chart: {
+                        'container': 'line-chart-container',
+                        'type': 'LINE',
+                        'options': {
+                            'width': '100%'
+                        }
+                    }
+                });
+                dataChart.execute();
+            });
+        });
     }
-  });
 
-  // Step 6: Hook up the components to work together.
+    return new Dashboard();
 
-  gapi.analytics.auth.on('success', function(response) {
-    viewSelector.execute();
-  });
+})(jQuery);
 
-  viewSelector.on('change', function(ids) {
-    var newIds = {
-      query: {
-        ids: ids
-      }
+GoogleAnalytics = GoogleAnalytics || {};
+GoogleAnalytics.Admin = GoogleAnalytics.Admin || {};
+
+GoogleAnalytics.Admin.Settings = (function ($) {
+
+    function Settings() {
+        $(function(){
+            this.handleEvents();
+        }.bind(this));
     }
-    timeline.set(newIds).execute();
-  });
-});
+
+    Settings.prototype.saveAccountKey = function(key) {
+        $.ajax({
+            url: ajaxurl,
+            type: 'post',
+            data: {
+                action : 'save_account_key',
+                key    : key
+            },
+            success: function(response) {
+                if (response.success) {
+                    location.reload();
+                } else {
+                    $('.notice').addClass('error').removeClass('updated').empty().append('<p>' + response.data + '</p>').show();
+                }
+            }
+        });
+    };
+
+    /**
+     * Handle events
+     * @return {void}
+     */
+    Settings.prototype.handleEvents = function () {
+        $("#save-service-account").submit(function(e) {
+            e.preventDefault();
+            var key = $('[name="service_account_key"]').val();
+                key = this.isJson(key);
+
+            if (key === false) {
+                $('.notice').addClass('error').removeClass('updated').empty().append('<p>' + googleanalytics.invalid_json + '</p>').show();
+                return;
+            }
+
+            Settings.prototype.saveAccountKey(key);
+        }.bind(this));
+    };
+
+    Settings.prototype.isJson = function (str) {
+        try {
+            JSON.parse(str);
+        } catch (e) {
+            return false;
+        }
+
+        return JSON.parse(str);
+    };
+
+    return new Settings();
+
+})(jQuery);
