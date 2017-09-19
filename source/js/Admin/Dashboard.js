@@ -4,7 +4,7 @@ GoogleAnalytics.Admin = GoogleAnalytics.Admin || {};
 GoogleAnalytics.Admin.Dashboard = (function ($) {
 
     function Dashboard() {
-        if (pagenow !== 'dashboard') {
+        if (pagenow !== 'dashboard' || !googleanalytics.google_analytics_view) {
             return;
         }
 
