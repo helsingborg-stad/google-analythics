@@ -19,7 +19,7 @@ class App
      */
     public function googleAnalytics()
     {
-        $gaUser = apply_filters('GoogleAnalytics/TrackingId/ua', get_field('google_analytics_ua', 'option'));
+        $gaUser = apply_filters('GoogleAnalytics/TrackingId/ua', get_option('options_google_analytics_ua'));
 
         if (empty($gaUser)) {
             return;
@@ -41,16 +41,16 @@ class App
     }
 
     /**
-     * Enqueue required scripts
+     * Enqueue admin scripts
      * @return void
      */
     public function enqueueScripts()
     {
-        $tracked_property = json_decode(get_option('_ga_tracked_property'), true);
+        $property_view = get_option('options_google_analytics_view');
 
         wp_enqueue_script('google-analytics', GOOGLEANALYTICS_URL . '/dist/js/google-analytics.dev.js', '', '1.0.0', true);
         wp_localize_script('google-analytics', 'googleanalytics', array(
-            'google_analytics_view' => (!empty($tracked_property['view'])) ? $tracked_property['view'] : '',
+            'google_analytics_view' => $property_view,
             'invalid_json' => __('Not valid JSON', 'google-analytics')
         ));
         wp_enqueue_script('google-analytics');

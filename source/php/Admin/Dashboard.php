@@ -16,7 +16,7 @@ class Dashboard
 	 */
 	function createDashboardWidgets()
 	{
-		if (! get_option('_ga_tracked_property')) {
+		if (! get_option('options_google_analytics_view')) {
 			return;
 		}
 

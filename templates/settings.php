@@ -30,9 +30,8 @@
                     <option value=""><?php _e('Select property', 'google-analytics') ?></option>
                     <?php
                         foreach ($properties as $property) {
-                            $propertyJSON = json_encode($property);
-                            $selected = ($tracked_property == $propertyJSON) ? 'selected' : '';
-                            echo "<option value='" . $propertyJSON . "' " . $selected . " >" . $property['name'] . " – " . $property['id'] . "</option>";
+                            $selected = ($tracked_property == $property['id']) ? 'selected' : '';
+                            echo "<option value='" . json_encode($property) . "' " . $selected . " >" . $property['name'] . " – " . $property['id'] . "</option>";
                         }
                     ?>
                 </select>
