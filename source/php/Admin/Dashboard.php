@@ -40,7 +40,7 @@ class Dashboard
 	 */
 	public function fetchAccessToken()
 	{
-    	$service_key = json_decode(get_option('_ga_service_account_key'), true);
+    	$service_key = json_decode(get_option('options_google_analytics_acc_key'), true);
         $account_email = (!empty($service_key['client_email'])) ? $service_key['client_email'] : '';
         $access_token = '';
 
