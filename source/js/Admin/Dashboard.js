@@ -42,6 +42,10 @@ GoogleAnalytics.Admin.Dashboard = (function ($) {
                     }
                 });
                 dataChart.execute();
+                // Workaround to make widget responsive
+                $(window).resize(function() {
+                    dataChart.execute();
+                });
             });
         });
     }
