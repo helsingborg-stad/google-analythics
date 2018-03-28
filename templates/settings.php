@@ -8,7 +8,7 @@
                 <table class="form-table">
                     <tr>
                         <th scope="row">
-                            <label for="service_account_key"><?php _e('Private key', 'google-analytics' )?></label>
+                            <label for="service_account_key"><?php _e('Private key', 'google-analytics' ); ?></label>
                         </th>
                         <td>
                             <textarea name="service_account_key" rows="6" cols="60" /></textarea>
@@ -16,7 +16,7 @@
                     </tr>
                 </table>
                 <p class="submit">
-                    <input name='submit' type='submit' class='button-primary' value='<?php _e('Save', 'google-analytics') ?>' />
+                    <input name='submit' type='submit' class='button-primary' value='<?php _e('Save', 'google-analytics'); ?>' />
                 </p>
             </form>
         </div>
@@ -27,7 +27,7 @@
             <form method="post" id="analytics-property">
                 <?php wp_nonce_field('save', 'save-tracked-property'); ?>
                 <select name="track_property">
-                    <option value=""><?php _e('Select web property', 'google-analytics') ?></option>
+                    <option value=""><?php _e('Select web property', 'google-analytics'); ?></option>
                     <?php
                         foreach ($properties as $property) {
                             $selected = ($tracked_property == $property['id']) ? 'selected' : '';
