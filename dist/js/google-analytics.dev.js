@@ -31,7 +31,7 @@ GoogleAnalytics.Admin.Dashboard = (function ($) {
                     query: {
                         'ids': 'ga:' + googleanalytics.google_analytics_view,
                         'start-date': '30daysAgo',
-                        'end-date': 'today',
+                        'end-date': 'yesterday',
                         'metrics': 'ga:sessions,ga:users',
                         'dimensions': 'ga:date'
                     },
