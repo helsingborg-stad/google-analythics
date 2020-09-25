@@ -102,9 +102,7 @@ class Google_Service_SecurityCommandCenter_Resource_OrganizationsSources extends
    * @param array $optParams Optional parameters.
    *
    * @opt_param string updateMask The FieldMask to use when updating the source
-   * resource.
-   *
-   * If empty all mutable fields will be updated.
+   * resource. If empty all mutable fields will be updated.
    * @return Google_Service_SecurityCommandCenter_Source
    */
   public function patch($name, Google_Service_SecurityCommandCenter_Source $postBody, $optParams = array())

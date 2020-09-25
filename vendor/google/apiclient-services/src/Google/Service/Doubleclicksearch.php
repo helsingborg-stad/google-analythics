@@ -19,12 +19,12 @@
  * Service definition for Doubleclicksearch (v2).
  *
  * <p>
- * Reports and modifies your advertising data in DoubleClick Search (for
- * example, campaigns, ad groups, keywords, and conversions).</p>
+ * The Search Ads 360 API allows developers to automate uploading conversions
+ * and downloading reports from Search Ads 360.</p>
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://developers.google.com/doubleclick-search/" target="_blank">Documentation</a>
+ * <a href="https://developers.google.com/search-ads" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -48,9 +48,9 @@ class Google_Service_Doubleclicksearch extends Google_Service
   public function __construct(Google_Client $client, $rootUrl = null)
   {
     parent::__construct($client);
-    $this->rootUrl = $rootUrl ?: 'https://www.googleapis.com/';
-    $this->servicePath = 'doubleclicksearch/v2/';
-    $this->batchPath = 'batch/doubleclicksearch/v2';
+    $this->rootUrl = $rootUrl ?: 'https://doubleclicksearch.googleapis.com/';
+    $this->servicePath = '';
+    $this->batchPath = 'batch';
     $this->version = 'v2';
     $this->serviceName = 'doubleclicksearch';
 
@@ -61,7 +61,7 @@ class Google_Service_Doubleclicksearch extends Google_Service
         array(
           'methods' => array(
             'get' => array(
-              'path' => 'agency/{agencyId}/advertiser/{advertiserId}/engine/{engineAccountId}/conversion',
+              'path' => 'doubleclicksearch/v2/agency/{agencyId}/advertiser/{advertiserId}/engine/{engineAccountId}/conversion',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'agencyId' => array(
@@ -103,11 +103,11 @@ class Google_Service_Doubleclicksearch extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'adId' => array(
+                'campaignId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'campaignId' => array(
+                'adId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -117,15 +117,15 @@ class Google_Service_Doubleclicksearch extends Google_Service
                 ),
               ),
             ),'insert' => array(
-              'path' => 'conversion',
+              'path' => 'doubleclicksearch/v2/conversion',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),'update' => array(
-              'path' => 'conversion',
+              'path' => 'doubleclicksearch/v2/conversion',
               'httpMethod' => 'PUT',
               'parameters' => array(),
             ),'updateAvailability' => array(
-              'path' => 'conversion/updateAvailability',
+              'path' => 'doubleclicksearch/v2/conversion/updateAvailability',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),
@@ -139,11 +139,11 @@ class Google_Service_Doubleclicksearch extends Google_Service
         array(
           'methods' => array(
             'generate' => array(
-              'path' => 'reports/generate',
+              'path' => 'doubleclicksearch/v2/reports/generate',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),'get' => array(
-              'path' => 'reports/{reportId}',
+              'path' => 'doubleclicksearch/v2/reports/{reportId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'reportId' => array(
@@ -153,7 +153,7 @@ class Google_Service_Doubleclicksearch extends Google_Service
                 ),
               ),
             ),'getFile' => array(
-              'path' => 'reports/{reportId}/files/{reportFragment}',
+              'path' => 'doubleclicksearch/v2/reports/{reportId}/files/{reportFragment}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'reportId' => array(
@@ -168,7 +168,7 @@ class Google_Service_Doubleclicksearch extends Google_Service
                 ),
               ),
             ),'request' => array(
-              'path' => 'reports',
+              'path' => 'doubleclicksearch/v2/reports',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),
@@ -182,7 +182,7 @@ class Google_Service_Doubleclicksearch extends Google_Service
         array(
           'methods' => array(
             'list' => array(
-              'path' => 'agency/{agencyId}/advertiser/{advertiserId}/savedcolumns',
+              'path' => 'doubleclicksearch/v2/agency/{agencyId}/advertiser/{advertiserId}/savedcolumns',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'agencyId' => array(

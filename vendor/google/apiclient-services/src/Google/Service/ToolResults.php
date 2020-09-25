@@ -19,7 +19,7 @@
  * Service definition for ToolResults (v1beta3).
  *
  * <p>
- * Reads and publishes results from Firebase Test Lab.</p>
+ * API to publish and access results from developer tools.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -55,9 +55,9 @@ class Google_Service_ToolResults extends Google_Service
   public function __construct(Google_Client $client, $rootUrl = null)
   {
     parent::__construct($client);
-    $this->rootUrl = $rootUrl ?: 'https://www.googleapis.com/';
-    $this->servicePath = 'toolresults/v1beta3/';
-    $this->batchPath = 'batch/toolresults/v1beta3';
+    $this->rootUrl = $rootUrl ?: 'https://toolresults.googleapis.com/';
+    $this->servicePath = '';
+    $this->batchPath = 'batch';
     $this->version = 'v1beta3';
     $this->serviceName = 'toolresults';
 
@@ -68,7 +68,7 @@ class Google_Service_ToolResults extends Google_Service
         array(
           'methods' => array(
             'getSettings' => array(
-              'path' => 'projects/{projectId}/settings',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/settings',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -78,7 +78,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'initializeSettings' => array(
-              'path' => 'projects/{projectId}:initializeSettings',
+              'path' => 'toolresults/v1beta3/projects/{projectId}:initializeSettings',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -98,7 +98,7 @@ class Google_Service_ToolResults extends Google_Service
         array(
           'methods' => array(
             'create' => array(
-              'path' => 'projects/{projectId}/histories',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -112,7 +112,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -127,7 +127,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'projects/{projectId}/histories',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -139,13 +139,13 @@ class Google_Service_ToolResults extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -159,7 +159,7 @@ class Google_Service_ToolResults extends Google_Service
         array(
           'methods' => array(
             'create' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -178,7 +178,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -198,7 +198,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -211,17 +211,17 @@ class Google_Service_ToolResults extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
             ),'patch' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}',
               'httpMethod' => 'PATCH',
               'parameters' => array(
                 'projectId' => array(
@@ -255,7 +255,7 @@ class Google_Service_ToolResults extends Google_Service
         array(
           'methods' => array(
             'get' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/clusters/{clusterId}',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/clusters/{clusterId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -280,7 +280,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/clusters',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/clusters',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -310,7 +310,7 @@ class Google_Service_ToolResults extends Google_Service
         array(
           'methods' => array(
             'get' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/environments/{environmentId}',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/environments/{environmentId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -335,7 +335,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/environments',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/environments',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -353,13 +353,13 @@ class Google_Service_ToolResults extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -373,7 +373,7 @@ class Google_Service_ToolResults extends Google_Service
         array(
           'methods' => array(
             'accessibilityClusters' => array(
-              'path' => '{+name}:accessibilityClusters',
+              'path' => 'toolresults/v1beta3/{+name}:accessibilityClusters',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -387,7 +387,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'create' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/steps',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -411,7 +411,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -436,7 +436,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'getPerfMetricsSummary' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfMetricsSummary',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfMetricsSummary',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -461,7 +461,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/steps',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -479,17 +479,17 @@ class Google_Service_ToolResults extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
             ),'patch' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}',
               'httpMethod' => 'PATCH',
               'parameters' => array(
                 'projectId' => array(
@@ -518,7 +518,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'publishXunitXmlFiles' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}:publishXunitXmlFiles',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}:publishXunitXmlFiles',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -553,7 +553,7 @@ class Google_Service_ToolResults extends Google_Service
         array(
           'methods' => array(
             'create' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfMetricsSummary',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfMetricsSummary',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -588,7 +588,7 @@ class Google_Service_ToolResults extends Google_Service
         array(
           'methods' => array(
             'create' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -613,7 +613,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries/{sampleSeriesId}',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries/{sampleSeriesId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -643,7 +643,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -683,7 +683,7 @@ class Google_Service_ToolResults extends Google_Service
         array(
           'methods' => array(
             'batchCreate' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries/{sampleSeriesId}/samples:batchCreate',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries/{sampleSeriesId}/samples:batchCreate',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -713,7 +713,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries/{sampleSeriesId}/samples',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries/{sampleSeriesId}/samples',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -741,13 +741,13 @@ class Google_Service_ToolResults extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -761,7 +761,7 @@ class Google_Service_ToolResults extends Google_Service
         array(
           'methods' => array(
             'get' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/testCases/{testCaseId}',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/testCases/{testCaseId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -791,7 +791,7 @@ class Google_Service_ToolResults extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/testCases',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/testCases',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -834,7 +834,7 @@ class Google_Service_ToolResults extends Google_Service
         array(
           'methods' => array(
             'list' => array(
-              'path' => 'projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/thumbnails',
+              'path' => 'toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/thumbnails',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(

@@ -29,8 +29,8 @@ class Google_Service_CloudRun_Resource_ProjectsLocationsAuthorizeddomains extend
    * List authorized domains.
    * (authorizeddomains.listProjectsLocationsAuthorizeddomains)
    *
-   * @param string $parent Name of the parent Application resource. Example:
-   * `apps/myapp`.
+   * @param string $parent Name of the parent Project resource. Example:
+   * `projects/myproject`.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string pageToken Continuation token for fetching the next page of

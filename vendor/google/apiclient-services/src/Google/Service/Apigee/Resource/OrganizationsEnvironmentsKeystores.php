@@ -26,9 +26,9 @@
 class Google_Service_Apigee_Resource_OrganizationsEnvironmentsKeystores extends Google_Service_Resource
 {
   /**
-   * Creates a keystore or truststore: Keystore: Contains certificates and their
-   * associated keys. Truststore: Contains trusted certificates used to validate a
-   * server's certificate. These certificates are typically self-signed
+   * Creates a keystore or truststore: * Keystore: Contains certificates and their
+   * associated keys. * Truststore: Contains trusted certificates used to validate
+   * a server's certificate. These certificates are typically self-signed
    * certificates or certificates that are not signed by a trusted CA.
    * (keystores.create)
    *
@@ -75,21 +75,5 @@ class Google_Service_Apigee_Resource_OrganizationsEnvironmentsKeystores extends 
     $params = array('name' => $name);
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Apigee_GoogleCloudApigeeV1Keystore");
-  }
-  /**
-   * Lists all keystores and truststores.
-   * (keystores.listOrganizationsEnvironmentsKeystores)
-   *
-   * @param string $parent Required. The name of the environment in which list
-   * keystores. Must be of the form
-   * `organizations/{organization}/environments/{environment}`.
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Apigee_ListResponse
-   */
-  public function listOrganizationsEnvironmentsKeystores($parent, $optParams = array())
-  {
-    $params = array('parent' => $parent);
-    $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Apigee_ListResponse");
   }
 }

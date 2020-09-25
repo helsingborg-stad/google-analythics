@@ -30,9 +30,9 @@ class Google_Service_Apigee_Resource_OrganizationsEnvironmentsApisRevisionsDebug
    * (debugsessions.create)
    *
    * @param string $parent Required. The resource name of the API Proxy revision
-   * deployment for which to create the DebugSession. Must be of the form  `organi
-   * zations/{organization}/environments/{environment}/apis/{api}/revisions/{revis
-   * ion}`.
+   * deployment for which to create the DebugSession. Must be of the form `organiz
+   * ations/{organization}/environments/{environment}/apis/{api}/revisions/{revisi
+   * on}`.
    * @param Google_Service_Apigee_GoogleCloudApigeeV1DebugSession $postBody
    * @param array $optParams Optional parameters.
    *
@@ -53,8 +53,8 @@ class Google_Service_Apigee_Resource_OrganizationsEnvironmentsApisRevisionsDebug
    * in runtime pods. (debugsessions.deleteData)
    *
    * @param string $name Required. The name of the debug session to delete. Must
-   * be of the form:  `organizations/{organization}/environments/{environment}/api
-   * s/{api}/revisions/{revision}/debugsessions/{debugsession}`.
+   * be of the form: `organizations/{organization}/environments/{environment}/apis
+   * /{api}/revisions/{revision}/debugsessions/{debugsession}`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Apigee_GoogleProtobufEmpty
    */
@@ -65,14 +65,34 @@ class Google_Service_Apigee_Resource_OrganizationsEnvironmentsApisRevisionsDebug
     return $this->call('deleteData', array($params), "Google_Service_Apigee_GoogleProtobufEmpty");
   }
   /**
+   * Retrieves a debug session. (debugsessions.get)
+   *
+   * @param string $name Required. The name of the debug session to retrieve. Must
+   * be of the form: `organizations/{organization}/environments/{environment}/apis
+   * /{api}/revisions/{revision}/debugsessions/{session}`.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Apigee_GoogleCloudApigeeV1DebugSession
+   */
+  public function get($name, $optParams = array())
+  {
+    $params = array('name' => $name);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Apigee_GoogleCloudApigeeV1DebugSession");
+  }
+  /**
    * Lists debug sessions that are currently active in the given API Proxy
    * revision.
    * (debugsessions.listOrganizationsEnvironmentsApisRevisionsDebugsessions)
    *
    * @param string $parent Required. The name of the API Proxy revision deployment
-   * for which to list debug sessions. Must be of the form:  `organizations/{organ
-   * ization}/environments/{environment}/apis/{api}/revisions/{revision}`.
+   * for which to list debug sessions. Must be of the form: `organizations/{organi
+   * zation}/environments/{environment}/apis/{api}/revisions/{revision}`.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string pageToken Page token, returned from a previous
+   * ListDebugSessions call, that you can use to retrieve the next page.
+   * @opt_param int pageSize Maximum number of debug sessions to return. The page
+   * size defaults to 25.
    * @return Google_Service_Apigee_GoogleCloudApigeeV1ListDebugSessionsResponse
    */
   public function listOrganizationsEnvironmentsApisRevisionsDebugsessions($parent, $optParams = array())

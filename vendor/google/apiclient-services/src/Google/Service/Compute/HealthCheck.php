@@ -20,6 +20,8 @@ class Google_Service_Compute_HealthCheck extends Google_Model
   public $checkIntervalSec;
   public $creationTimestamp;
   public $description;
+  protected $grpcHealthCheckType = 'Google_Service_Compute_GRPCHealthCheck';
+  protected $grpcHealthCheckDataType = '';
   public $healthyThreshold;
   protected $http2HealthCheckType = 'Google_Service_Compute_HTTP2HealthCheck';
   protected $http2HealthCheckDataType = '';
@@ -63,6 +65,20 @@ class Google_Service_Compute_HealthCheck extends Google_Model
   public function getDescription()
   {
     return $this->description;
+  }
+  /**
+   * @param Google_Service_Compute_GRPCHealthCheck
+   */
+  public function setGrpcHealthCheck(Google_Service_Compute_GRPCHealthCheck $grpcHealthCheck)
+  {
+    $this->grpcHealthCheck = $grpcHealthCheck;
+  }
+  /**
+   * @return Google_Service_Compute_GRPCHealthCheck
+   */
+  public function getGrpcHealthCheck()
+  {
+    return $this->grpcHealthCheck;
   }
   public function setHealthyThreshold($healthyThreshold)
   {

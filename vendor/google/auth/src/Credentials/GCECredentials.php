@@ -18,12 +18,14 @@
 namespace Google\Auth\Credentials;
 
 use Google\Auth\CredentialsLoader;
+use Google\Auth\GetQuotaProjectInterface;
 use Google\Auth\HttpHandler\HttpClientCache;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\Iam;
 use Google\Auth\ProjectIdProviderInterface;
 use Google\Auth\SignBlobInterface;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7\Request;
@@ -55,9 +57,12 @@ use InvalidArgumentException;
  */
 class GCECredentials extends CredentialsLoader implements
     SignBlobInterface,
-    ProjectIdProviderInterface
+    ProjectIdProviderInterface,
+    GetQuotaProjectInterface
 {
+    // phpcs:disable
     const cacheKey = 'GOOGLE_AUTH_PHP_GCE';
+    // phpcs:enable
 
     /**
      * The metadata IP address on appengine instances.
@@ -150,21 +155,41 @@ class GCECredentials extends CredentialsLoader implements
     private $targetAudience;
 
     /**
+     * @var string|null
+     */
+    private $quotaProject;
+
+    /**
+     * @var string|null
+     */
+    private $serviceAccountIdentity;
+
+    /**
      * @param Iam $iam [optional] An IAM instance.
      * @param string|array $scope [optional] the scope of the access request,
      *        expressed either as an array or as a space-delimited string.
      * @param string $targetAudience [optional] The audience for the ID token.
+     * @param string $quotaProject [optional] Specifies a project to bill for access
+     *   charges associated with the request.
+     * @param string $serviceAccountIdentity [optional] Specify a service
+     *   account identity name to use instead of "default".
      */
-    public function __construct(Iam $iam = null, $scope = null, $targetAudience = null)
-    {
+    public function __construct(
+        Iam $iam = null,
+        $scope = null,
+        $targetAudience = null,
+        $quotaProject = null,
+        $serviceAccountIdentity = null
+    ) {
         $this->iam = $iam;
 
         if ($scope && $targetAudience) {
             throw new InvalidArgumentException(
-                'Scope and targetAudience cannot both be supplied');
+                'Scope and targetAudience cannot both be supplied'
+            );
         }
 
-        $tokenUri = self::getTokenUri();
+        $tokenUri = self::getTokenUri($serviceAccountIdentity);
         if ($scope) {
             if (is_string($scope)) {
                 $scope = explode(' ', $scope);
@@ -174,39 +199,82 @@ class GCECredentials extends CredentialsLoader implements
 
             $tokenUri = $tokenUri . '?scopes='. $scope;
         } elseif ($targetAudience) {
-            $tokenUri = sprintf('http://%s/computeMetadata/%s?audience=%s',
-                self::METADATA_IP,
-                self::ID_TOKEN_URI_PATH,
-                $targetAudience
-            );
+            $tokenUri = self::getIdTokenUri($serviceAccountIdentity);
+            $tokenUri = $tokenUri . '?audience='. $targetAudience;
             $this->targetAudience = $targetAudience;
         }
 
         $this->tokenUri = $tokenUri;
+        $this->quotaProject = $quotaProject;
+        $this->serviceAccountIdentity = $serviceAccountIdentity;
     }
 
     /**
      * The full uri for accessing the default token.
      *
+     * @param string $serviceAccountIdentity [optional] Specify a service
+     *   account identity name to use instead of "default".
      * @return string
      */
-    public static function getTokenUri()
+    public static function getTokenUri($serviceAccountIdentity = null)
     {
         $base = 'http://' . self::METADATA_IP . '/computeMetadata/';
+        $base .= self::TOKEN_URI_PATH;
 
-        return $base . self::TOKEN_URI_PATH;
+        if ($serviceAccountIdentity) {
+            return str_replace(
+                '/default/',
+                '/' . $serviceAccountIdentity . '/',
+                $base
+            );
+        }
+        return $base;
     }
 
     /**
      * The full uri for accessing the default service account.
      *
+     * @param string $serviceAccountIdentity [optional] Specify a service
+     *   account identity name to use instead of "default".
      * @return string
      */
-    public static function getClientNameUri()
+    public static function getClientNameUri($serviceAccountIdentity = null)
     {
         $base = 'http://' . self::METADATA_IP . '/computeMetadata/';
+        $base .= self::CLIENT_ID_URI_PATH;
 
-        return $base . self::CLIENT_ID_URI_PATH;
+        if ($serviceAccountIdentity) {
+            return str_replace(
+                '/default/',
+                '/' . $serviceAccountIdentity . '/',
+                $base
+            );
+        }
+
+        return $base;
+    }
+
+    /**
+     * The full uri for accesesing the default identity token.
+     *
+     * @param string $serviceAccountIdentity [optional] Specify a service
+     *   account identity name to use instead of "default".
+     * @return string
+     */
+    private static function getIdTokenUri($serviceAccountIdentity = null)
+    {
+        $base = 'http://' . self::METADATA_IP . '/computeMetadata/';
+        $base .= self::ID_TOKEN_URI_PATH;
+
+        if ($serviceAccountIdentity) {
+            return str_replace(
+                '/default/',
+                '/' . $serviceAccountIdentity . '/',
+                $base
+            );
+        }
+
+        return $base;
     }
 
     /**
@@ -225,7 +293,7 @@ class GCECredentials extends CredentialsLoader implements
      * Determines if this an App Engine Flexible instance, by accessing the
      * GAE_INSTANCE environment variable.
      *
-     * @return true if this an App Engine Flexible Instance, false otherwise
+     * @return bool true if this an App Engine Flexible Instance, false otherwise
      */
     public static function onAppEngineFlexible()
     {
@@ -269,6 +337,7 @@ class GCECredentials extends CredentialsLoader implements
             } catch (ClientException $e) {
             } catch (ServerException $e) {
             } catch (RequestException $e) {
+            } catch (ConnectException $e) {
             }
         }
         return false;
@@ -372,7 +441,10 @@ class GCECredentials extends CredentialsLoader implements
             return '';
         }
 
-        $this->clientName = $this->getFromMetadata($httpHandler, self::getClientNameUri());
+        $this->clientName = $this->getFromMetadata(
+            $httpHandler,
+            self::getClientNameUri($this->serviceAccountIdentity)
+        );
 
         return $this->clientName;
     }
@@ -455,5 +527,15 @@ class GCECredentials extends CredentialsLoader implements
         );
 
         return (string) $resp->getBody();
+    }
+
+    /**
+     * Get the quota project used for this API request
+     *
+     * @return string|null
+     */
+    public function getQuotaProject()
+    {
+        return $this->quotaProject;
     }
 }

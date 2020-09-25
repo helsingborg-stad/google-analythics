@@ -31,8 +31,8 @@ class Google_Service_Apigee_Resource_OrganizationsEnvironmentsQueries extends Go
    * query. In addition to the HTTP status 201, the `state` of "enqueued" means
    * that the request succeeded. (queries.create)
    *
-   * @param string $parent Required. The parent organization and environment
-   * names. Must be of the form `organizations/{org}/environments/{env}`.
+   * @param string $parent Required. The parent resource name. Must be of the form
+   * `organizations/{org}/environments/{env}`.
    * @param Google_Service_Apigee_GoogleCloudApigeeV1Query $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Apigee_GoogleCloudApigeeV1AsyncQuery
@@ -63,10 +63,8 @@ class Google_Service_Apigee_Resource_OrganizationsEnvironmentsQueries extends Go
    * After the query is completed, use this API to retrieve the results. If the
    * request succeeds, and there is a non-zero result set, the result is
    * downloaded to the client as a zipped JSON file. The name of the downloaded
-   * file will be:   OfflineQueryResult-.zip
-   *
-   * Example: `OfflineQueryResult-9cfc0d85-0f30-46d6-ae6f-318d0cb961bd.zip`
-   * (queries.getResult)
+   * file will be: OfflineQueryResult-.zip Example: `OfflineQueryResult-
+   * 9cfc0d85-0f30-46d6-ae6f-318d0cb961bd.zip` (queries.getResult)
    *
    * @param string $name Required. Name of the asynchronous query result to get.
    * Must be of the form
@@ -81,42 +79,26 @@ class Google_Service_Apigee_Resource_OrganizationsEnvironmentsQueries extends Go
     return $this->call('getResult', array($params), "Google_Service_Apigee_GoogleApiHttpBody");
   }
   /**
-   * (queries.getResultView)
-   *
-   * @param string $name Required. Name of the asynchronous query result view to
-   * get. Must be of the form
-   * `organizations/{org}/environments/{env}/queries/{queryId}/resultView`.
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Apigee_GoogleCloudApigeeV1AsyncQueryResultView
-   */
-  public function getResultView($name, $optParams = array())
-  {
-    $params = array('name' => $name);
-    $params = array_merge($params, $optParams);
-    return $this->call('getResultView', array($params), "Google_Service_Apigee_GoogleCloudApigeeV1AsyncQueryResultView");
-  }
-  /**
    * Return a list of Asynchronous Queries
    * (queries.listOrganizationsEnvironmentsQueries)
    *
-   * @param string $parent Required. The parent organization and environment
-   * names. Must be of the form `organizations/{org}/environments/{env}`.
+   * @param string $parent Required. The parent resource name. Must be of the form
+   * `organizations/{org}/environments/{env}`.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string inclQueriesWithoutReport Flag to include asynchronous
+   * queries that don't have a report denifition.
+   * @opt_param string submittedBy Filter response list by user who submitted
+   * queries.
    * @opt_param string from Filter response list by returning asynchronous queries
    * that created after this date time. Time must be in ISO date-time format like
    * '2011-12-03T10:15:30Z'.
-   * @opt_param string submittedBy Filter response list by user who submitted
-   * queries
-   * @opt_param string inclQueriesWithoutReport Flag to include asynchronous
-   * queries that don't have a report denifition.
    * @opt_param string to Filter response list by returning asynchronous queries
    * that created before this date time. Time must be in ISO date-time format like
    * '2011-12-03T10:16:30Z'.
-   * @opt_param string status Filter response list by asynchronous query status
-   * @opt_param string dataset Filter response list by dataset.
-   *
-   * Example: `api`, `mint`
+   * @opt_param string status Filter response list by asynchronous query status.
+   * @opt_param string dataset Filter response list by dataset. Example: `api`,
+   * `mint`
    * @return Google_Service_Apigee_GoogleCloudApigeeV1ListAsyncQueriesResponse
    */
   public function listOrganizationsEnvironmentsQueries($parent, $optParams = array())

@@ -71,14 +71,16 @@ class ServiceAccountJwtAccessCredentials extends CredentialsLoader implements
         }
         if (!array_key_exists('client_email', $jsonKey)) {
             throw new \InvalidArgumentException(
-                'json key is missing the client_email field');
+                'json key is missing the client_email field'
+            );
         }
         if (!array_key_exists('private_key', $jsonKey)) {
             throw new \InvalidArgumentException(
-                'json key is missing the private_key field');
+                'json key is missing the private_key field'
+            );
         }
-        if (array_key_exists('quota_project', $jsonKey)) {
-            $this->quotaProject = (string) $jsonKey['quota_project'];
+        if (array_key_exists('quota_project_id', $jsonKey)) {
+            $this->quotaProject = (string) $jsonKey['quota_project_id'];
         }
         $this->auth = new OAuth2([
             'issuer' => $jsonKey['client_email'],
@@ -98,7 +100,6 @@ class ServiceAccountJwtAccessCredentials extends CredentialsLoader implements
      * @param array $metadata metadata hashmap
      * @param string $authUri optional auth uri
      * @param callable $httpHandler callback which delivers psr7 request
-     *
      * @return array updated metadata hashmap
      */
     public function updateMetadata(

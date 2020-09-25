@@ -89,6 +89,10 @@ class Google_Service_CloudSourceRepositories_Resource_ProjectsRepos extends Goog
    * Requests for policies with any conditional bindings must specify version 3.
    * Policies without any conditional bindings may specify any valid value or
    * leave the field unset.
+   *
+   * To learn which resources support conditions in their IAM policies, see the
+   * [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-
+   * policies).
    * @return Google_Service_CloudSourceRepositories_Policy
    */
   public function getIamPolicy($resource, $optParams = array())
@@ -106,11 +110,11 @@ class Google_Service_CloudSourceRepositories_Resource_ProjectsRepos extends Goog
    * of the form `projects/`.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize Maximum number of repositories to return; between 1
+   * and 500. If not set or zero, defaults to 100 at the server.
    * @opt_param string pageToken Resume listing repositories where a prior
    * ListReposResponse left off. This is an opaque token that must be obtained
    * from a recent, prior ListReposResponse's next_page_token field.
-   * @opt_param int pageSize Maximum number of repositories to return; between 1
-   * and 500. If not set or zero, defaults to 100 at the server.
    * @return Google_Service_CloudSourceRepositories_ListReposResponse
    */
   public function listProjectsRepos($name, $optParams = array())

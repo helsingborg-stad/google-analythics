@@ -19,11 +19,11 @@
  * Service definition for Fitness (v1).
  *
  * <p>
- * Stores and accesses user data in the fitness store from apps on any platform.</p>
+ * The Fitness API for managing users' fitness tracking data.</p>
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://developers.google.com/fit/rest/" target="_blank">Documentation</a>
+ * <a href="https://developers.google.com/fit/rest/v1/get-started" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -78,10 +78,10 @@ class Google_Service_Fitness extends Google_Service
   /** See and add info about your oxygen saturation in Google Fit. I consent to Google sharing my oxygen saturation information with this app.. */
   const FITNESS_OXYGEN_SATURATION_WRITE =
       "https://www.googleapis.com/auth/fitness.oxygen_saturation.write";
-  /** See info about your reproductive health in Google Fit. I consent to Google sharing my reporductive health information with this app.. */
+  /** See info about your reproductive health in Google Fit. I consent to Google sharing my reproductive health information with this app.. */
   const FITNESS_REPRODUCTIVE_HEALTH_READ =
       "https://www.googleapis.com/auth/fitness.reproductive_health.read";
-  /** See and add info about your reproductive health in Google Fit. I consent to Google sharing my reporductive health information with this app.. */
+  /** See and add info about your reproductive health in Google Fit. I consent to Google sharing my reproductive health information with this app.. */
   const FITNESS_REPRODUCTIVE_HEALTH_WRITE =
       "https://www.googleapis.com/auth/fitness.reproductive_health.write";
 
@@ -100,9 +100,9 @@ class Google_Service_Fitness extends Google_Service
   public function __construct(Google_Client $client, $rootUrl = null)
   {
     parent::__construct($client);
-    $this->rootUrl = $rootUrl ?: 'https://www.googleapis.com/';
+    $this->rootUrl = $rootUrl ?: 'https://fitness.googleapis.com/';
     $this->servicePath = 'fitness/v1/users/';
-    $this->batchPath = 'batch/fitness/v1';
+    $this->batchPath = 'batch';
     $this->version = 'v1';
     $this->serviceName = 'fitness';
 
@@ -206,13 +206,13 @@ class Google_Service_Fitness extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'limit' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'limit' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -244,11 +244,11 @@ class Google_Service_Fitness extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'currentTimeMillis' => array(
+                'modifiedTimeMillis' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'modifiedTimeMillis' => array(
+                'currentTimeMillis' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -272,13 +272,13 @@ class Google_Service_Fitness extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'limit' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'limit' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),'patch' => array(
@@ -363,12 +363,7 @@ class Google_Service_Fitness extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'activityType' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                  'repeated' => true,
-                ),
-                'endTime' => array(
+                'startTime' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -376,11 +371,16 @@ class Google_Service_Fitness extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'pageToken' => array(
+                'endTime' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'startTime' => array(
+                'activityType' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                  'repeated' => true,
+                ),
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),

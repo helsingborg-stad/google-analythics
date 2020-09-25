@@ -44,10 +44,8 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * makes the operation succeed only if there are no live versions of the object.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the object's current metageneration matches the given value.
-   * @opt_param string kmsKeyName Resource name of the Cloud KMS key, of the form
-   * projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that
-   * will be used to encrypt the object. Overrides the object metadata's
-   * kms_key_name value, if any.
+   * @opt_param string kmsKeyName Not currently supported. Specifying the
+   * parameter causes the request to fail with status code 400 - Bad Request.
    * @opt_param string provisionalUserProject The project to be billed for this
    * request if the target bucket is requester-pays bucket.
    * @opt_param string userProject The project to be billed for this request.
@@ -78,6 +76,10 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * @param Google_Service_Storage_StorageObject $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string destinationKmsKeyName Resource name of the Cloud KMS key,
+   * of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys
+   * /my-key, that will be used to encrypt the object. Overrides the object
+   * metadata's kms_key_name value, if any.
    * @opt_param string destinationPredefinedAcl Apply a predefined set of access
    * controls to the destination object.
    * @opt_param string ifGenerationMatch Makes the operation conditional on

@@ -166,6 +166,8 @@ class Google_Service_Compute_Resource_Subnetworks extends Google_Service_Resourc
    * @param string $region The name of the region for this request.
    * @param string $resource Name or id of the resource for this request.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param int optionsRequestedPolicyVersion Requested IAM Policy version.
    * @return Google_Service_Compute_Policy
    */
   public function getIamPolicy($project, $region, $resource, $optParams = array())
@@ -258,9 +260,8 @@ class Google_Service_Compute_Resource_Subnetworks extends Google_Service_Resourc
     return $this->call('list', array($params), "Google_Service_Compute_SubnetworkList");
   }
   /**
-   * Retrieves an aggregated list of all usable subnetworks in the project. The
-   * list contains all of the subnetworks in the project and the subnetworks that
-   * were shared by a Shared VPC host project. (subnetworks.listUsable)
+   * Retrieves an aggregated list of all usable subnetworks in the project.
+   * (subnetworks.listUsable)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.

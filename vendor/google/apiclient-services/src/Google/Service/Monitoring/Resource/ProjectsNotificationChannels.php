@@ -132,6 +132,12 @@ class Google_Service_Monitoring_Resource_ProjectsNotificationChannels extends Go
    * GetNotificationChannel operation.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string pageToken If non-empty, page_token must contain a value
+   * returned as the next_page_token in a previous response to request the next
+   * set of results.
+   * @opt_param int pageSize The maximum number of results to return in a single
+   * response. If not set to a positive number, a reasonable value will be chosen
+   * by the service.
    * @opt_param string filter If provided, this field specifies the criteria that
    * must be met by notification channels to be included in the response.For more
    * details, see sorting and filtering
@@ -141,12 +147,6 @@ class Google_Service_Monitoring_Resource_ProjectsNotificationChannels extends Go
    * prefixed with a minus sign to sort in descending rather than ascending
    * order.For more details, see sorting and filtering
    * (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
-   * @opt_param string pageToken If non-empty, page_token must contain a value
-   * returned as the next_page_token in a previous response to request the next
-   * set of results.
-   * @opt_param int pageSize The maximum number of results to return in a single
-   * response. If not set to a positive number, a reasonable value will be chosen
-   * by the service.
    * @return Google_Service_Monitoring_ListNotificationChannelsResponse
    */
   public function listProjectsNotificationChannels($name, $optParams = array())

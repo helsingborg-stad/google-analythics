@@ -87,6 +87,10 @@ class Google_Service_CloudDebugger extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'agentId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'successOnTimeout' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -199,9 +203,13 @@ class Google_Service_CloudDebugger extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'includeAllUsers' => array(
+                'action.value' => array(
                   'location' => 'query',
-                  'type' => 'boolean',
+                  'type' => 'string',
+                ),
+                'clientVersion' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'stripResults' => array(
                   'location' => 'query',
@@ -211,13 +219,9 @@ class Google_Service_CloudDebugger extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'clientVersion' => array(
+                'includeAllUsers' => array(
                   'location' => 'query',
-                  'type' => 'string',
-                ),
-                'action.value' => array(
-                  'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
               ),
             ),'set' => array(
@@ -230,6 +234,10 @@ class Google_Service_CloudDebugger extends Google_Service
                   'required' => true,
                 ),
                 'clientVersion' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'canaryOption' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),

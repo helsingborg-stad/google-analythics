@@ -80,8 +80,8 @@ class Google_Service_Firestore_Resource_ProjectsDatabasesCollectionGroupsIndexes
    *
    * @opt_param string pageToken A page token, returned from a previous call to
    * FirestoreAdmin.ListIndexes, that may be used to get the next page of results.
-   * @opt_param int pageSize The number of results to return.
    * @opt_param string filter The filter to apply to list results.
+   * @opt_param int pageSize The number of results to return.
    * @return Google_Service_Firestore_GoogleFirestoreAdminV1ListIndexesResponse
    */
   public function listProjectsDatabasesCollectionGroupsIndexes($parent, $optParams = array())

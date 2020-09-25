@@ -45,11 +45,12 @@ class Google_Service_Apigee_Resource_OrganizationsApps extends Google_Service_Re
    * company). (apps.listOrganizationsApps)
    *
    * @param string $parent Required. Resource path of the parent in the following
-   * format:  `organizations/{org}`
+   * format: `organizations/{org}`
    * @param array $optParams Optional parameters.
    *
    * @opt_param string startKey Returns the list of apps starting from the
    * specified app ID.
+   * @opt_param string apiProduct API product.
    * @opt_param string status Optional. Filter by the status of the app. Valid
    * values are `approved` or `revoked`. Defaults to `approved`.
    * @opt_param string apptype Optional. Filter by the type of the app. Valid
@@ -60,11 +61,10 @@ class Google_Service_Apigee_Resource_OrganizationsApps extends Google_Service_Re
    * include `approved` or `revoked`. Defaults to `approved`.
    * @opt_param string ids Optional. Comma-separated list of app IDs on which to
    * filter.
-   * @opt_param bool includeCred Optional. Flag that specifies whether to include
-   * credentials in the response.
    * @opt_param string rows Optional. Maximum number of app IDs to return.
    * Defaults to 10000.
-   * @opt_param string apiProduct API product.
+   * @opt_param bool includeCred Optional. Flag that specifies whether to include
+   * credentials in the response.
    * @return Google_Service_Apigee_GoogleCloudApigeeV1ListAppsResponse
    */
   public function listOrganizationsApps($parent, $optParams = array())

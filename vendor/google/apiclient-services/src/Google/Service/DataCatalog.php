@@ -43,6 +43,7 @@ class Google_Service_DataCatalog extends Google_Service
   public $projects_locations_entryGroups_tags;
   public $projects_locations_tagTemplates;
   public $projects_locations_tagTemplates_fields;
+  public $projects_locations_tagTemplates_fields_enumValues;
   public $projects_locations_taxonomies;
   public $projects_locations_taxonomies_policyTags;
   
@@ -85,11 +86,11 @@ class Google_Service_DataCatalog extends Google_Service
               'path' => 'v1beta1/entries:lookup',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'linkedResource' => array(
+                'sqlResource' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'sqlResource' => array(
+                'linkedResource' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -409,13 +410,13 @@ class Google_Service_DataCatalog extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -577,6 +578,26 @@ class Google_Service_DataCatalog extends Google_Service
                 ),
               ),
             ),'rename' => array(
+              'path' => 'v1beta1/{+name}:rename',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->projects_locations_tagTemplates_fields_enumValues = new Google_Service_DataCatalog_Resource_ProjectsLocationsTagTemplatesFieldsEnumValues(
+        $this,
+        $this->serviceName,
+        'enumValues',
+        array(
+          'methods' => array(
+            'rename' => array(
               'path' => 'v1beta1/{+name}:rename',
               'httpMethod' => 'POST',
               'parameters' => array(

@@ -1,3 +1,37 @@
+## 1.13.0 (9/18/2020)
+
+* [feat]: Add service account identity support to GCECredentials (#304)
+
+## 1.12.0 (8/31/2020)
+
+* [feat]: Add QuotaProject option to getMiddleware (#296)
+* [feat]: Add caching for calls to GCECredentials::onGce (#301)
+* [feat]: Add updateMetadata function to token cache (#298)
+* [fix]: Use quota_project_id instead of quota_project (#299)
+
+## 1.11.1 (7/27/2020)
+
+* [fix]: catch ConnectException in GCE check (#294)
+* [docs]: Adds [reference docs](https://googleapis.github.io/google-auth-library-php/master)
+
+## 1.11.0 (7/22/2020)
+
+* [feat]: Check cache expiration (#291)
+* [fix]: OAuth2 cache key when audience is set (#291)
+
+## 1.10.0 (7/8/2020)
+
+* [feat]: Add support for Guzzle 7 (#256)
+* [fix]: Remove SDK warning (#283)
+* [chore]: Switch to github pages deploy action (#284)
+
+## 1.9.0 (5/14/2020)
+
+* [feat] Add quotaProject param for extensible client options support (#277)
+* [feat] Add signingKeyId param for jwt signing (#270)
+* [docs] Misc documentation improvements (#268, #278, #273)
+* [chore] Switch from Travis to Github Actions (#273)
+
 ## 1.8.0 (3/26/2020)
 
 * [feat] Add option to throw exception in AccessToken::verify(). (#265)

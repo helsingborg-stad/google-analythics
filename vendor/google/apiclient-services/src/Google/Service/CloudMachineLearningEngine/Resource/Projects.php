@@ -26,11 +26,10 @@
 class Google_Service_CloudMachineLearningEngine_Resource_Projects extends Google_Service_Resource
 {
   /**
-   * Performs explanation on the data in the request. AI Platform implements a
-   * custom `explain` verb on top of an HTTP POST method. (projects.explain)
+   * Performs explanation on the data in the request. {% dynamic include "/ai-
+   * platform/includes/___explain-request" %}  (projects.explain)
    *
    * @param string $name Required. The resource name of a model or a version.
-   *
    * Authorization: requires the `predict` permission on the specified resource.
    * @param Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1ExplainRequest $postBody
    * @param array $optParams Optional parameters.
@@ -59,13 +58,10 @@ class Google_Service_CloudMachineLearningEngine_Resource_Projects extends Google
     return $this->call('getConfig', array($params), "Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1GetConfigResponse");
   }
   /**
-   * Performs online prediction on the data in the request.
-   *
-   * {% dynamic include "/ai-platform/includes/___predict-request" %}
-   * (projects.predict)
+   * Performs online prediction on the data in the request. {% dynamic include
+   * "/ai-platform/includes/___predict-request" %}  (projects.predict)
    *
    * @param string $name Required. The resource name of a model or a version.
-   *
    * Authorization: requires the `predict` permission on the specified resource.
    * @param Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1PredictRequest $postBody
    * @param array $optParams Optional parameters.

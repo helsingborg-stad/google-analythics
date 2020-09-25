@@ -30,7 +30,9 @@
  */
 class Google_Service_AdMob extends Google_Service
 {
-
+  /** See your AdMob data. */
+  const ADMOB_REPORT =
+      "https://www.googleapis.com/auth/admob.report";
 
   public $accounts;
   public $accounts_mediationReport;

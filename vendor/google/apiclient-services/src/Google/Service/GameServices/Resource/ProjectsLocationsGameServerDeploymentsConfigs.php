@@ -26,19 +26,17 @@
 class Google_Service_GameServices_Resource_ProjectsLocationsGameServerDeploymentsConfigs extends Google_Service_Resource
 {
   /**
-   * Creates a new Game Server Config in a given project, Location, and Game
-   * Server Deployment. Game Server Configs are immutable, and are not applied
-   * until referenced in the Game Server Deployment Rollout resource.
+   * Creates a new game server config in a given project, location, and game
+   * server deployment. Game server configs are immutable, and are not applied
+   * until referenced in the game server deployment rollout resource.
    * (configs.create)
    *
-   * @param string $parent Required. The parent resource name. Uses the form:
-   *
-   * `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/`
-   * .
+   * @param string $parent Required. The parent resource name. Uses the form: `pro
+   * jects/{project}/locations/{location}/gameServerDeployments/{deployment}/`.
    * @param Google_Service_GameServices_GameServerConfig $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string configId Required. The ID of the Game Server Config
+   * @opt_param string configId Required. The ID of the game server config
    * resource to be created.
    * @return Google_Service_GameServices_Operation
    */
@@ -49,15 +47,13 @@ class Google_Service_GameServices_Resource_ProjectsLocationsGameServerDeployment
     return $this->call('create', array($params), "Google_Service_GameServices_Operation");
   }
   /**
-   * Deletes a single Game Server Config. The deletion will fail if the Game
-   * Server Config is referenced in a Game Server Deployment Rollout.
+   * Deletes a single game server config. The deletion will fail if the game
+   * server config is referenced in a game server deployment rollout.
    * (configs.delete)
    *
-   * @param string $name Required. The name of the Game Server Config to delete.
-   * Uses the form:
-   *
-   * `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/c
-   * onfigs/{config}`.
+   * @param string $name Required. The name of the game server config to delete.
+   * Uses the form: `projects/{project}/locations/{location}/gameServerDeployments
+   * /{deployment}/configs/{config}`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_GameServices_Operation
    */
@@ -68,13 +64,11 @@ class Google_Service_GameServices_Resource_ProjectsLocationsGameServerDeployment
     return $this->call('delete', array($params), "Google_Service_GameServices_Operation");
   }
   /**
-   * Gets details of a single Game Server Config. (configs.get)
+   * Gets details of a single game server config. (configs.get)
    *
-   * @param string $name Required. The name of the Game Server Config to retrieve.
-   * Uses the form:
-   *
-   * `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/c
-   * onfigs/{config}`.
+   * @param string $name Required. The name of the game server config to retrieve.
+   * Uses the form: `projects/{project}/locations/{location}/gameServerDeployments
+   * /{deployment}/configs/{config}`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_GameServices_GameServerConfig
    */
@@ -85,25 +79,24 @@ class Google_Service_GameServices_Resource_ProjectsLocationsGameServerDeployment
     return $this->call('get', array($params), "Google_Service_GameServices_GameServerConfig");
   }
   /**
-   * Lists Game Server Configs in a given project, Location, and Game Server
-   * Deployment. (configs.listProjectsLocationsGameServerDeploymentsConfigs)
+   * Lists game server configs in a given project, location, and game server
+   * deployment. (configs.listProjectsLocationsGameServerDeploymentsConfigs)
    *
-   * @param string $parent Required. The parent resource name. Uses the form:
-   *
-   * `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/c
-   * onfigs`.
+   * @param string $parent Required. The parent resource name. Uses the form: `pro
+   * jects/{project}/locations/{location}/gameServerDeployments/{deployment}/confi
+   * gs`.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. The filter to apply to list results.
-   * @opt_param string pageToken Optional. The next_page_token value returned from
-   * a previous List request, if any.
-   * @opt_param string orderBy Optional. Specifies the ordering of results
-   * following syntax at
-   * https://cloud.google.com/apis/design/design_patterns#sorting_order.
-   * @opt_param int pageSize Optional. The maximum number of items to return.  If
+   * @opt_param int pageSize Optional. The maximum number of items to return. If
    * unspecified, server will pick an appropriate default. Server may return fewer
    * items than requested. A caller should only rely on response's next_page_token
    * to determine if there are more GameServerConfigs left to be queried.
+   * @opt_param string orderBy Optional. Specifies the ordering of results
+   * following syntax at
+   * https://cloud.google.com/apis/design/design_patterns#sorting_order.
+   * @opt_param string pageToken Optional. The next_page_token value returned from
+   * a previous list request, if any.
    * @return Google_Service_GameServices_ListGameServerConfigsResponse
    */
   public function listProjectsLocationsGameServerDeploymentsConfigs($parent, $optParams = array())

@@ -28,14 +28,14 @@ class Google_Service_CloudFilestore_Resource_ProjectsLocationsInstances extends 
   /**
    * Creates an instance. (instances.create)
    *
-   * @param string $parent The instance's project and location, in the format
-   * projects/{project_id}/locations/{location}. In Cloud Filestore, locations map
-   * to GCP zones, for example **us-west1-b**.
+   * @param string $parent Required. The instance's project and location, in the
+   * format projects/{project_id}/locations/{location}. In Cloud Filestore,
+   * locations map to GCP zones, for example **us-west1-b**.
    * @param Google_Service_CloudFilestore_Instance $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string instanceId The name of the instance to create. The name
-   * must be unique for the specified project and location.
+   * @opt_param string instanceId Required. The name of the instance to create.
+   * The name must be unique for the specified project and location.
    * @return Google_Service_CloudFilestore_Operation
    */
   public function create($parent, Google_Service_CloudFilestore_Instance $postBody, $optParams = array())
@@ -47,7 +47,7 @@ class Google_Service_CloudFilestore_Resource_ProjectsLocationsInstances extends 
   /**
    * Deletes an instance. (instances.delete)
    *
-   * @param string $name The instance resource name, in the format
+   * @param string $name Required. The instance resource name, in the format
    * projects/{project_id}/locations/{location}/instances/{instance_id}
    * @param array $optParams Optional parameters.
    * @return Google_Service_CloudFilestore_Operation
@@ -61,7 +61,7 @@ class Google_Service_CloudFilestore_Resource_ProjectsLocationsInstances extends 
   /**
    * Gets the details of a specific instance. (instances.get)
    *
-   * @param string $name The instance resource name, in the format
+   * @param string $name Required. The instance resource name, in the format
    * projects/{project_id}/locations/{location}/instances/{instance_id}.
    * @param array $optParams Optional parameters.
    * @return Google_Service_CloudFilestore_Instance
@@ -76,11 +76,11 @@ class Google_Service_CloudFilestore_Resource_ProjectsLocationsInstances extends 
    * Lists all instances in a project for either a specified location or for all
    * locations. (instances.listProjectsLocationsInstances)
    *
-   * @param string $parent The project and location for which to retrieve instance
-   * information, in the format projects/{project_id}/locations/{location}. In
-   * Cloud Filestore, locations map to GCP zones, for example **us-west1-b**. To
-   * retrieve instance information for all locations, use "-" for the {location}
-   * value.
+   * @param string $parent Required. The project and location for which to
+   * retrieve instance information, in the format
+   * projects/{project_id}/locations/{location}. In Cloud Filestore, locations map
+   * to GCP zones, for example **us-west1-b**. To retrieve instance information
+   * for all locations, use "-" for the {location} value.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string pageToken The next_page_token value to use if there are
@@ -105,11 +105,9 @@ class Google_Service_CloudFilestore_Resource_ProjectsLocationsInstances extends 
    * @param Google_Service_CloudFilestore_Instance $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string updateMask Mask of fields to update.  At least one path
-   * must be supplied in this field.  The elements of the repeated paths field may
-   * only include these fields:
-   *
-   * * "description" * "file_shares" * "labels"
+   * @opt_param string updateMask Mask of fields to update. At least one path must
+   * be supplied in this field. The elements of the repeated paths field may only
+   * include these fields: * "description" * "file_shares" * "labels"
    * @return Google_Service_CloudFilestore_Operation
    */
   public function patch($name, Google_Service_CloudFilestore_Instance $postBody, $optParams = array())

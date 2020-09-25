@@ -29,25 +29,26 @@ class Google_Service_DLP_Resource_ProjectsLocationsImage extends Google_Service_
    * Redacts potentially sensitive info from an image. This method has limits on
    * input size, processing time, and output size. See
    * https://cloud.google.com/dlp/docs/redacting-sensitive-data-images to learn
-   * more.
-   *
-   * When no InfoTypes or CustomInfoTypes are specified in this request, the
+   * more. When no InfoTypes or CustomInfoTypes are specified in this request, the
    * system will automatically choose what detectors to run. By default this may
    * be all types, but may change over time as detectors are updated.
    * (image.redact)
    *
-   * @param string $parent The parent resource name, for example projects/my-
-   * project-id.
-   * @param string $locationId The geographic location to process the request.
-   * Reserved for future extensions. Location is restricted to 'global', 'us',
-   * 'asia', and 'europe'.
+   * @param string $parent Parent resource name. The format of this value varies
+   * depending on whether you have [specified a processing location](/dlp/docs
+   * /specifying-location): + Projects scope, location specified:
+   * `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
+   * specified (defaults to global): `projects/`PROJECT_ID The following example
+   * `parent` string specifies a parent project with the identifier `example-
+   * project`, and specifies the `europe-west3` location for processing data:
+   * parent=projects/example-project/locations/europe-west3
    * @param Google_Service_DLP_GooglePrivacyDlpV2RedactImageRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_DLP_GooglePrivacyDlpV2RedactImageResponse
    */
-  public function redact($parent, $locationId, Google_Service_DLP_GooglePrivacyDlpV2RedactImageRequest $postBody, $optParams = array())
+  public function redact($parent, Google_Service_DLP_GooglePrivacyDlpV2RedactImageRequest $postBody, $optParams = array())
   {
-    $params = array('parent' => $parent, 'locationId' => $locationId, 'postBody' => $postBody);
+    $params = array('parent' => $parent, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('redact', array($params), "Google_Service_DLP_GooglePrivacyDlpV2RedactImageResponse");
   }

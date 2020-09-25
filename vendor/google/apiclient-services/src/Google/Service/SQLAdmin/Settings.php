@@ -17,12 +17,13 @@
 
 class Google_Service_SQLAdmin_Settings extends Google_Collection
 {
-  protected $collection_key = 'databaseFlags';
+  protected $collection_key = 'maintenanceDenyPeriods';
   public $activationPolicy;
   public $authorizedGaeApplications;
   public $availabilityType;
   protected $backupConfigurationType = 'Google_Service_SQLAdmin_BackupConfiguration';
   protected $backupConfigurationDataType = '';
+  public $collation;
   public $crashSafeReplicationEnabled;
   public $dataDiskSizeGb;
   public $dataDiskType;
@@ -34,6 +35,8 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   public $kind;
   protected $locationPreferenceType = 'Google_Service_SQLAdmin_LocationPreference';
   protected $locationPreferenceDataType = '';
+  protected $maintenanceDenyPeriodsType = 'Google_Service_SQLAdmin_MaintenanceDenyPeriod';
+  protected $maintenanceDenyPeriodsDataType = 'array';
   protected $maintenanceWindowType = 'Google_Service_SQLAdmin_MaintenanceWindow';
   protected $maintenanceWindowDataType = '';
   public $pricingPlan;
@@ -81,6 +84,14 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   public function getBackupConfiguration()
   {
     return $this->backupConfiguration;
+  }
+  public function setCollation($collation)
+  {
+    $this->collation = $collation;
+  }
+  public function getCollation()
+  {
+    return $this->collation;
   }
   public function setCrashSafeReplicationEnabled($crashSafeReplicationEnabled)
   {
@@ -163,6 +174,20 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   public function getLocationPreference()
   {
     return $this->locationPreference;
+  }
+  /**
+   * @param Google_Service_SQLAdmin_MaintenanceDenyPeriod
+   */
+  public function setMaintenanceDenyPeriods($maintenanceDenyPeriods)
+  {
+    $this->maintenanceDenyPeriods = $maintenanceDenyPeriods;
+  }
+  /**
+   * @return Google_Service_SQLAdmin_MaintenanceDenyPeriod
+   */
+  public function getMaintenanceDenyPeriods()
+  {
+    return $this->maintenanceDenyPeriods;
   }
   /**
    * @param Google_Service_SQLAdmin_MaintenanceWindow

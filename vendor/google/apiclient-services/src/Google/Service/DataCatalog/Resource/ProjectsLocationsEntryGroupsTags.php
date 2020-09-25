@@ -27,21 +27,18 @@ class Google_Service_DataCatalog_Resource_ProjectsLocationsEntryGroupsTags exten
 {
   /**
    * Creates a tag on an Entry. Note: The project identified by the `parent`
-   * parameter for the [tag](/data-catalog/docs/reference/rest/v1beta1/projects.lo
-   * cations.entryGroups.entries.tags/create#path-parameters) and the [tag
-   * template](/data-
+   * parameter for the [tag](https://cloud.google.com/data-catalog/docs/reference/
+   * rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-
+   * parameters) and the [tag template](https://cloud.google.com/data-
    * catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create
    * #path-parameters) used to create the tag must be from the same organization.
    * (tags.create)
    *
    * @param string $parent Required. The name of the resource to attach this tag
-   * to. Tags can be attached to Entries. Example:
-   *
-   * * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/ent
-   * ries/{entry_id}
-   *
-   * Note that this Tag and its child resources may not actually be stored in the
-   * location in this name.
+   * to. Tags can be attached to Entries. Example: * projects/{project_id}/locatio
+   * ns/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this
+   * Tag and its child resources may not actually be stored in the location in
+   * this name.
    * @param Google_Service_DataCatalog_GoogleCloudDatacatalogV1beta1Tag $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_DataCatalog_GoogleCloudDatacatalogV1beta1Tag
@@ -55,10 +52,9 @@ class Google_Service_DataCatalog_Resource_ProjectsLocationsEntryGroupsTags exten
   /**
    * Deletes a tag. (tags.delete)
    *
-   * @param string $name Required. The name of the tag to delete. Example:
-   *
-   * * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/ent
-   * ries/{entry_id}/tags/{tag_id}
+   * @param string $name Required. The name of the tag to delete. Example: * proje
+   * cts/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{e
+   * ntry_id}/tags/{tag_id}
    * @param array $optParams Optional parameters.
    * @return Google_Service_DataCatalog_DatacatalogEmpty
    */
@@ -72,19 +68,16 @@ class Google_Service_DataCatalog_Resource_ProjectsLocationsEntryGroupsTags exten
    * Lists the tags on an Entry. (tags.listProjectsLocationsEntryGroupsTags)
    *
    * @param string $parent Required. The name of the Data Catalog resource to list
-   * the tags of. The resource could be an Entry or an EntryGroup.
-   *
-   * Examples:
-   *
-   * * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} * p
-   * rojects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entrie
-   * s/{entry_id}
+   * the tags of. The resource could be an Entry or an EntryGroup. Examples: *
+   * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} * pro
+   * jects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/
+   * {entry_id}
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Token that specifies which page is requested. If
-   * empty, the first page is returned.
    * @opt_param int pageSize The maximum number of tags to return. Default is 10.
    * Max limit is 1000.
+   * @opt_param string pageToken Token that specifies which page is requested. If
+   * empty, the first page is returned.
    * @return Google_Service_DataCatalog_GoogleCloudDatacatalogV1beta1ListTagsResponse
    */
   public function listProjectsLocationsEntryGroupsTags($parent, $optParams = array())
@@ -96,13 +89,10 @@ class Google_Service_DataCatalog_Resource_ProjectsLocationsEntryGroupsTags exten
   /**
    * Updates an existing tag. (tags.patch)
    *
-   * @param string $name The resource name of the tag in URL format. Example:
-   *
-   * * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/ent
-   * ries/{entry_id}/tags/{tag_id}
-   *
-   * where `tag_id` is a system-generated identifier. Note that this Tag may not
-   * actually be stored in the location in this name.
+   * @param string $name The resource name of the tag in URL format. Example: * pr
+   * ojects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries
+   * /{entry_id}/tags/{tag_id} where `tag_id` is a system-generated identifier.
+   * Note that this Tag may not actually be stored in the location in this name.
    * @param Google_Service_DataCatalog_GoogleCloudDatacatalogV1beta1Tag $postBody
    * @param array $optParams Optional parameters.
    *

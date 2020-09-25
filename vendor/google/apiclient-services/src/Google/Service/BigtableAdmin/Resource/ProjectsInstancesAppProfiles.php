@@ -34,11 +34,11 @@ class Google_Service_BigtableAdmin_Resource_ProjectsInstancesAppProfiles extends
    * @param Google_Service_BigtableAdmin_AppProfile $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool ignoreWarnings If true, ignore safety checks when creating
+   * the app profile.
    * @opt_param string appProfileId Required. The ID to be used when referring to
    * the new app profile within its instance, e.g., just `myprofile` rather than
    * `projects/myproject/instances/myinstance/appProfiles/myprofile`.
-   * @opt_param bool ignoreWarnings If true, ignore safety checks when creating
-   * the app profile.
    * @return Google_Service_BigtableAdmin_AppProfile
    */
   public function create($parent, Google_Service_BigtableAdmin_AppProfile $postBody, $optParams = array())
@@ -93,15 +93,12 @@ class Google_Service_BigtableAdmin_Resource_ProjectsInstancesAppProfiles extends
    *
    * @opt_param string pageToken The value of `next_page_token` returned by a
    * previous call.
-   * @opt_param int pageSize Maximum number of results per page.
-   *
-   * A page_size of zero lets the server choose the number of items to return. A
-   * page_size which is strictly positive will return at most that many items. A
-   * negative page_size will cause an error.
-   *
-   * Following the first request, subsequent paginated calls are not required to
-   * pass a page_size. If a page_size is set in subsequent calls, it must match
-   * the page_size given in the first request.
+   * @opt_param int pageSize Maximum number of results per page. A page_size of
+   * zero lets the server choose the number of items to return. A page_size which
+   * is strictly positive will return at most that many items. A negative
+   * page_size will cause an error. Following the first request, subsequent
+   * paginated calls are not required to pass a page_size. If a page_size is set
+   * in subsequent calls, it must match the page_size given in the first request.
    * @return Google_Service_BigtableAdmin_ListAppProfilesResponse
    */
   public function listProjectsInstancesAppProfiles($parent, $optParams = array())
@@ -113,15 +110,15 @@ class Google_Service_BigtableAdmin_Resource_ProjectsInstancesAppProfiles extends
   /**
    * Updates an app profile within an instance. (appProfiles.patch)
    *
-   * @param string $name (`OutputOnly`) The unique name of the app profile. Values
-   * are of the form `projects//instances//appProfiles/_a-zA-Z0-9*`.
+   * @param string $name The unique name of the app profile. Values are of the
+   * form `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
    * @param Google_Service_BigtableAdmin_AppProfile $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool ignoreWarnings If true, ignore safety checks when updating
-   * the app profile.
    * @opt_param string updateMask Required. The subset of app profile fields which
    * should be replaced. If unset, all fields will be replaced.
+   * @opt_param bool ignoreWarnings If true, ignore safety checks when updating
+   * the app profile.
    * @return Google_Service_BigtableAdmin_Operation
    */
   public function patch($name, Google_Service_BigtableAdmin_AppProfile $postBody, $optParams = array())

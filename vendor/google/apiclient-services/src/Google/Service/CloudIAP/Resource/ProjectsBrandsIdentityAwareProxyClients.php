@@ -32,7 +32,7 @@ class Google_Service_CloudIAP_Resource_ProjectsBrandsIdentityAwareProxyClients e
    *
    * @param string $parent Required. Path to create the client in. In the
    * following format: projects/{project_number/id}/brands/{brand}. The project
-   * must belong to a GSuite account.
+   * must belong to a G Suite account.
    * @param Google_Service_CloudIAP_IdentityAwareProxyClient $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_CloudIAP_IdentityAwareProxyClient
@@ -85,17 +85,15 @@ class Google_Service_CloudIAP_Resource_ProjectsBrandsIdentityAwareProxyClients e
    * projects/{project_number/id}/brands/{brand}.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken A page token, received from a previous
-   * `ListIdentityAwareProxyClients` call. Provide this to retrieve the subsequent
-   * page.
-   *
-   * When paginating, all other parameters provided to
-   * `ListIdentityAwareProxyClients` must match the call that provided the page
-   * token.
    * @opt_param int pageSize The maximum number of clients to return. The service
    * may return fewer than this value. If unspecified, at most 100 clients will be
    * returned. The maximum value is 1000; values above 1000 will be coerced to
    * 1000.
+   * @opt_param string pageToken A page token, received from a previous
+   * `ListIdentityAwareProxyClients` call. Provide this to retrieve the subsequent
+   * page. When paginating, all other parameters provided to
+   * `ListIdentityAwareProxyClients` must match the call that provided the page
+   * token.
    * @return Google_Service_CloudIAP_ListIdentityAwareProxyClientsResponse
    */
   public function listProjectsBrandsIdentityAwareProxyClients($parent, $optParams = array())

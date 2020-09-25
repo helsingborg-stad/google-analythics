@@ -196,6 +196,16 @@ class Google_Service_Pubsub extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'detach' => array(
+              'path' => 'v1/{+subscription}:detach',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'subscription' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'get' => array(
               'path' => 'v1/{+subscription}',
               'httpMethod' => 'GET',
@@ -371,13 +381,13 @@ class Google_Service_Pubsub extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -467,13 +477,13 @@ class Google_Service_Pubsub extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),

@@ -56,11 +56,9 @@ class Google_Service_DataCatalog_Resource_ProjectsLocationsTaxonomies extends Go
     return $this->call('delete', array($params), "Google_Service_DataCatalog_DatacatalogEmpty");
   }
   /**
-   * Exports all taxonomies and their policy tags in a project.
-   *
-   * This method generates SerializedTaxonomy protos with nested policy tags that
-   * can be used as an input for future ImportTaxonomies calls.
-   * (taxonomies.export)
+   * Exports all taxonomies and their policy tags in a project. This method
+   * generates SerializedTaxonomy protos with nested policy tags that can be used
+   * as an input for future ImportTaxonomies calls. (taxonomies.export)
    *
    * @param string $parent Required. Resource name of the project that taxonomies
    * to be exported will share.
@@ -109,12 +107,11 @@ class Google_Service_DataCatalog_Resource_ProjectsLocationsTaxonomies extends Go
   }
   /**
    * Imports all taxonomies and their policy tags to a project as new taxonomies.
-   *
    * This method provides a bulk taxonomy / policy tag creation using nested proto
    * structure. (taxonomies.import)
    *
-   * @param string $parent Required. Resource name of project that the newly
-   * created taxonomies will belong to.
+   * @param string $parent Required. Resource name of project that the imported
+   * taxonomies will belong to.
    * @param Google_Service_DataCatalog_GoogleCloudDatacatalogV1beta1ImportTaxonomiesRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_DataCatalog_GoogleCloudDatacatalogV1beta1ImportTaxonomiesResponse

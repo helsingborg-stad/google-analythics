@@ -20,7 +20,10 @@ class Google_Service_Dataflow_LaunchFlexTemplateParameter extends Google_Model
   protected $containerSpecType = 'Google_Service_Dataflow_ContainerSpec';
   protected $containerSpecDataType = '';
   public $containerSpecGcsPath;
+  protected $environmentType = 'Google_Service_Dataflow_FlexTemplateRuntimeEnvironment';
+  protected $environmentDataType = '';
   public $jobName;
+  public $launchOptions;
   public $parameters;
 
   /**
@@ -45,6 +48,20 @@ class Google_Service_Dataflow_LaunchFlexTemplateParameter extends Google_Model
   {
     return $this->containerSpecGcsPath;
   }
+  /**
+   * @param Google_Service_Dataflow_FlexTemplateRuntimeEnvironment
+   */
+  public function setEnvironment(Google_Service_Dataflow_FlexTemplateRuntimeEnvironment $environment)
+  {
+    $this->environment = $environment;
+  }
+  /**
+   * @return Google_Service_Dataflow_FlexTemplateRuntimeEnvironment
+   */
+  public function getEnvironment()
+  {
+    return $this->environment;
+  }
   public function setJobName($jobName)
   {
     $this->jobName = $jobName;
@@ -52,6 +69,14 @@ class Google_Service_Dataflow_LaunchFlexTemplateParameter extends Google_Model
   public function getJobName()
   {
     return $this->jobName;
+  }
+  public function setLaunchOptions($launchOptions)
+  {
+    $this->launchOptions = $launchOptions;
+  }
+  public function getLaunchOptions()
+  {
+    return $this->launchOptions;
   }
   public function setParameters($parameters)
   {

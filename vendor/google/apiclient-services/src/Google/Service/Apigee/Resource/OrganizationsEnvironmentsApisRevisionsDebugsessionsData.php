@@ -29,8 +29,8 @@ class Google_Service_Apigee_Resource_OrganizationsEnvironmentsApisRevisionsDebug
    * Gets the debug data from a transaction. (data.get)
    *
    * @param string $name Required. The name of the debug session transaction. Must
-   * be of the form:  `organizations/{organization}/environments/{environment}/api
-   * s/{api}/revisions/{revision}/debugsessions/{session}/data/{transaction}`.
+   * be of the form: `organizations/{organization}/environments/{environment}/apis
+   * /{api}/revisions/{revision}/debugsessions/{session}/data/{transaction}`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Apigee_GoogleCloudApigeeV1DebugSessionTransaction
    */
@@ -39,25 +39,5 @@ class Google_Service_Apigee_Resource_OrganizationsEnvironmentsApisRevisionsDebug
     $params = array('name' => $name);
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Apigee_GoogleCloudApigeeV1DebugSessionTransaction");
-  }
-  /**
-   * Lists the transaction IDs from a debug session.
-   * (data.listOrganizationsEnvironmentsApisRevisionsDebugsessionsData)
-   *
-   * @param string $parent Required. The name of the debug sessions for which to
-   * list transactions. Must be of the form:  `organizations/{organization}/enviro
-   * nments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}`
-   * .
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param int limit Optional. A http query parameter that can control the
-   * maximum number of debug session transactions that can be returned by UAP.
-   * @return Google_Service_Apigee_ListResponse
-   */
-  public function listOrganizationsEnvironmentsApisRevisionsDebugsessionsData($parent, $optParams = array())
-  {
-    $params = array('parent' => $parent);
-    $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Apigee_ListResponse");
   }
 }
