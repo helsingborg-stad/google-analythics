@@ -16,8 +16,6 @@ use Psr\Http\Message\UriInterface;
 
 /**
  * HTTP handler that uses PHP's HTTP stream wrapper.
- *
- * @final
  */
 class StreamHandler
 {
@@ -93,7 +91,7 @@ class StreamHandler
                 $error,
                 []
             );
-            ($options['on_stats'])($stats);
+            \call_user_func($options['on_stats'], $stats);
         }
     }
 

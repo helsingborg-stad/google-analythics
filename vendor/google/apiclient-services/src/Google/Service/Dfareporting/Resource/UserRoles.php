@@ -73,12 +73,12 @@ class Google_Service_Dfareporting_Resource_UserRoles extends Google_Service_Reso
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
-   * @opt_param string ids Select only user roles with the specified IDs.
-   * @opt_param string sortField Field by which to sort the list.
    * @opt_param string sortOrder Order of sorted results.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string subaccountId Select only user roles that belong to this
+   * subaccount.
    * @opt_param bool accountUserRoleOnly Select only account level user roles not
    * associated with any specific subaccount.
    * @opt_param string searchString Allows searching for objects by name or ID.
@@ -88,8 +88,8 @@ class Google_Service_Dfareporting_Resource_UserRoles extends Google_Service_Reso
    * start and the end of the search string. For example, a search string of
    * "userrole" will match objects with name "my userrole", "userrole 2015", or
    * simply "userrole".
-   * @opt_param string subaccountId Select only user roles that belong to this
-   * subaccount.
+   * @opt_param string ids Select only user roles with the specified IDs.
+   * @opt_param string sortField Field by which to sort the list.
    * @return Google_Service_Dfareporting_UserRolesListResponse
    */
   public function listUserRoles($profileId, $optParams = array())

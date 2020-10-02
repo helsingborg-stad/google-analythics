@@ -46,6 +46,11 @@ class Google_Service_Dfareporting_Resource_Projects extends Google_Service_Resou
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string advertiserIds Select only projects with these advertiser
+   * IDs.
+   * @opt_param string sortOrder Order of sorted results.
+   * @opt_param string ids Select only projects with these IDs.
    * @opt_param string sortField Field by which to sort the list.
    * @opt_param string searchString Allows searching for projects by name or ID.
    * Wildcards (*) are allowed. For example, "project*2015" will return projects
@@ -55,11 +60,6 @@ class Google_Service_Dfareporting_Resource_Projects extends Google_Service_Resou
    * match projects with name "my project", "project 2015", or simply "project".
    * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
-   * @opt_param string sortOrder Order of sorted results.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string ids Select only projects with these IDs.
-   * @opt_param string advertiserIds Select only projects with these advertiser
-   * IDs.
    * @return Google_Service_Dfareporting_ProjectsListResponse
    */
   public function listProjects($profileId, $optParams = array())

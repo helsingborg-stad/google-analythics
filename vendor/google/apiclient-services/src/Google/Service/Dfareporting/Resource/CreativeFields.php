@@ -73,7 +73,8 @@ class Google_Service_Dfareporting_Resource_CreativeFields extends Google_Service
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string sortOrder Order of sorted results.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for creative fields by name
    * or ID. Wildcards (*) are allowed. For example, "creativefield*2015" will
    * return creative fields with names like "creativefield June 2015",
@@ -82,13 +83,12 @@ class Google_Service_Dfareporting_Resource_CreativeFields extends Google_Service
    * search string. For example, a search string of "creativefield" will match
    * creative fields with the name "my creativefield", "creativefield 2015", or
    * simply "creativefield".
+   * @opt_param string ids Select only creative fields with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string advertiserIds Select only creative fields that belong to
    * these advertisers.
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string ids Select only creative fields with these IDs.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
+   * @opt_param string sortOrder Order of sorted results.
    * @return Google_Service_Dfareporting_CreativeFieldsListResponse
    */
   public function listCreativeFields($profileId, $optParams = array())

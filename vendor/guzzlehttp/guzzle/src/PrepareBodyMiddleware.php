@@ -8,8 +8,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * Prepares requests that contain a body, adding the Content-Length,
  * Content-Type, and Expect headers.
- *
- * @final
  */
 class PrepareBodyMiddleware
 {
@@ -40,7 +38,7 @@ class PrepareBodyMiddleware
         // Add a default content-type if possible.
         if (!$request->hasHeader('Content-Type')) {
             if ($uri = $request->getBody()->getMetadata('uri')) {
-                if (is_string($uri) && $type = Psr7\mimetype_from_filename($uri)) {
+                if ($type = Psr7\mimetype_from_filename($uri)) {
                     $modify['set_headers']['Content-Type'] = $type;
                 }
             }

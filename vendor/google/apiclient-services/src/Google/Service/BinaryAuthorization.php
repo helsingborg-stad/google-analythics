@@ -186,6 +186,16 @@ class Google_Service_BinaryAuthorization extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'validateAttestationOccurrence' => array(
+              'path' => 'v1/{+attestor}:validateAttestationOccurrence',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'attestor' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),
           )
         )

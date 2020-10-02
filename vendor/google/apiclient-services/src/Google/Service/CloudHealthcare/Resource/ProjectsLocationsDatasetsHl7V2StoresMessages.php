@@ -104,6 +104,8 @@ class Google_Service_CloudHealthcare_Resource_ProjectsLocationsDatasetsHl7V2Stor
    * @param string $parent Name of the HL7v2 store to retrieve messages from.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize Limit on the number of messages to return in a single
+   * response. If zero the default page size of 100 is used.
    * @opt_param string filter Restricts messages returned to those matching a
    * filter. Syntax:
    * https://cloud.google.com/appengine/docs/standard/python/search/query_strings
@@ -125,8 +127,6 @@ class Google_Service_CloudHealthcare_Resource_ProjectsLocationsDatasetsHl7V2Stor
    * response. When unspecified, equivalent to BASIC. Setting this to anything
    * other than BASIC with a `page_size` larger than the default can generate a
    * large response, which impacts the performance of this method.
-   * @opt_param int pageSize Limit on the number of messages to return in a single
-   * response. If zero the default page size of 100 is used.
    * @opt_param string orderBy Orders messages returned by the specified order_by
    * clause. Syntax:
    * https://cloud.google.com/apis/design/design_patterns#sorting_order Fields

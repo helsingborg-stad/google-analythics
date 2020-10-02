@@ -10,9 +10,6 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
 
-/**
- * @final
- */
 class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
 {
     use ClientTrait;
@@ -74,8 +71,6 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
      * @param array  $args
      *
      * @return PromiseInterface|ResponseInterface
-     *
-     * @deprecated Client::__call will be removed in guzzlehttp/guzzle:8.0.
      */
     public function __call($method, $args)
     {
@@ -196,8 +191,6 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
      * @param string|null $option The config option to retrieve.
      *
      * @return mixed
-     *
-     * @deprecated Client::getConfig will be removed in guzzlehttp/guzzle:8.0.
      */
     public function getConfig(?string $option = null)
     {
@@ -416,7 +409,7 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
         if (isset($options['query'])) {
             $value = $options['query'];
             if (\is_array($value)) {
-                $value = \http_build_query($value, '', '&', \PHP_QUERY_RFC3986);
+                $value = \http_build_query($value, null, '&', \PHP_QUERY_RFC3986);
             }
             if (!\is_string($value)) {
                 throw new InvalidArgumentException('query must be a string or array');

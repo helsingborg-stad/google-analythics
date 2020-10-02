@@ -16,8 +16,6 @@ use Psr\Http\Message\RequestInterface;
  * **curl** key of the provided request options.
  *
  * @property resource $_mh Internal use only. Lazy loaded multi-handle.
- *
- * @final
  */
 class CurlMultiHandler
 {

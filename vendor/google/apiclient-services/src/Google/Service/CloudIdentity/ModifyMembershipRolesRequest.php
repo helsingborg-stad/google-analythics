@@ -17,12 +17,10 @@
 
 class Google_Service_CloudIdentity_ModifyMembershipRolesRequest extends Google_Collection
 {
-  protected $collection_key = 'updateRolesParams';
+  protected $collection_key = 'removeRoles';
   protected $addRolesType = 'Google_Service_CloudIdentity_MembershipRole';
   protected $addRolesDataType = 'array';
   public $removeRoles;
-  protected $updateRolesParamsType = 'Google_Service_CloudIdentity_UpdateMembershipRolesParams';
-  protected $updateRolesParamsDataType = 'array';
 
   /**
    * @param Google_Service_CloudIdentity_MembershipRole
@@ -45,19 +43,5 @@ class Google_Service_CloudIdentity_ModifyMembershipRolesRequest extends Google_C
   public function getRemoveRoles()
   {
     return $this->removeRoles;
-  }
-  /**
-   * @param Google_Service_CloudIdentity_UpdateMembershipRolesParams
-   */
-  public function setUpdateRolesParams($updateRolesParams)
-  {
-    $this->updateRolesParams = $updateRolesParams;
-  }
-  /**
-   * @return Google_Service_CloudIdentity_UpdateMembershipRolesParams
-   */
-  public function getUpdateRolesParams()
-  {
-    return $this->updateRolesParams;
   }
 }

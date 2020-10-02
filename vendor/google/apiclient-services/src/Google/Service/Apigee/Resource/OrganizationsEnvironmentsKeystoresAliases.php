@@ -43,6 +43,8 @@ class Google_Service_Apigee_Resource_OrganizationsEnvironmentsKeystoresAliases e
    * @param Google_Service_Apigee_GoogleApiHttpBody $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string format Required. The format of the data. Must be either
+   * `selfsignedcert`, `keycertfile`, or `pkcs12`.
    * @opt_param string alias The alias for the key, certificate pair. Values must
    * match regular expression `[\w\s-.]{1,255}`. This must be provided for all
    * formats except 'selfsignedcert'; self-signed certs may specify the alias in
@@ -54,8 +56,6 @@ class Google_Service_Apigee_Resource_OrganizationsEnvironmentsKeystoresAliases e
    * exists.
    * @opt_param bool ignoreExpiryValidation If `true`, no expiry validation will
    * be performed.
-   * @opt_param string format Required. The format of the data. Must be either
-   * `selfsignedcert`, `keycertfile`, or `pkcs12`.
    * @return Google_Service_Apigee_GoogleCloudApigeeV1Alias
    */
   public function create($parent, Google_Service_Apigee_GoogleApiHttpBody $postBody, $optParams = array())

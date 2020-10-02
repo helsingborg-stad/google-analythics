@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for Apigateway (v1alpha1).
+ * Service definition for Apigateway (v1alpha2).
  *
  * <p>
 </p>
@@ -52,7 +52,7 @@ class Google_Service_Apigateway extends Google_Service
     $this->rootUrl = $rootUrl ?: 'https://apigateway.googleapis.com/';
     $this->servicePath = '';
     $this->batchPath = 'batch';
-    $this->version = 'v1alpha1';
+    $this->version = 'v1alpha2';
     $this->serviceName = 'apigateway';
 
     $this->projects_locations = new Google_Service_Apigateway_Resource_ProjectsLocations(
@@ -62,7 +62,7 @@ class Google_Service_Apigateway extends Google_Service
         array(
           'methods' => array(
             'get' => array(
-              'path' => 'v1alpha1/{+name}',
+              'path' => 'v1alpha2/{+name}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -72,7 +72,7 @@ class Google_Service_Apigateway extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'v1alpha1/{+name}/locations',
+              'path' => 'v1alpha2/{+name}/locations',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -104,7 +104,7 @@ class Google_Service_Apigateway extends Google_Service
         array(
           'methods' => array(
             'getIamPolicy' => array(
-              'path' => 'v1alpha1/{+resource}:getIamPolicy',
+              'path' => 'v1alpha2/{+resource}:getIamPolicy',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'resource' => array(
@@ -118,7 +118,7 @@ class Google_Service_Apigateway extends Google_Service
                 ),
               ),
             ),'setIamPolicy' => array(
-              'path' => 'v1alpha1/{+resource}:setIamPolicy',
+              'path' => 'v1alpha2/{+resource}:setIamPolicy',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'resource' => array(
@@ -128,7 +128,7 @@ class Google_Service_Apigateway extends Google_Service
                 ),
               ),
             ),'testIamPermissions' => array(
-              'path' => 'v1alpha1/{+resource}:testIamPermissions',
+              'path' => 'v1alpha2/{+resource}:testIamPermissions',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'resource' => array(
@@ -148,7 +148,7 @@ class Google_Service_Apigateway extends Google_Service
         array(
           'methods' => array(
             'getIamPolicy' => array(
-              'path' => 'v1alpha1/{+resource}:getIamPolicy',
+              'path' => 'v1alpha2/{+resource}:getIamPolicy',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'resource' => array(
@@ -162,7 +162,7 @@ class Google_Service_Apigateway extends Google_Service
                 ),
               ),
             ),'setIamPolicy' => array(
-              'path' => 'v1alpha1/{+resource}:setIamPolicy',
+              'path' => 'v1alpha2/{+resource}:setIamPolicy',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'resource' => array(
@@ -172,7 +172,7 @@ class Google_Service_Apigateway extends Google_Service
                 ),
               ),
             ),'testIamPermissions' => array(
-              'path' => 'v1alpha1/{+resource}:testIamPermissions',
+              'path' => 'v1alpha2/{+resource}:testIamPermissions',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'resource' => array(
@@ -192,7 +192,7 @@ class Google_Service_Apigateway extends Google_Service
         array(
           'methods' => array(
             'getIamPolicy' => array(
-              'path' => 'v1alpha1/{+resource}:getIamPolicy',
+              'path' => 'v1alpha2/{+resource}:getIamPolicy',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'resource' => array(
@@ -206,7 +206,7 @@ class Google_Service_Apigateway extends Google_Service
                 ),
               ),
             ),'setIamPolicy' => array(
-              'path' => 'v1alpha1/{+resource}:setIamPolicy',
+              'path' => 'v1alpha2/{+resource}:setIamPolicy',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'resource' => array(
@@ -216,7 +216,7 @@ class Google_Service_Apigateway extends Google_Service
                 ),
               ),
             ),'testIamPermissions' => array(
-              'path' => 'v1alpha1/{+resource}:testIamPermissions',
+              'path' => 'v1alpha2/{+resource}:testIamPermissions',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'resource' => array(
@@ -236,7 +236,7 @@ class Google_Service_Apigateway extends Google_Service
         array(
           'methods' => array(
             'cancel' => array(
-              'path' => 'v1alpha1/{+name}:cancel',
+              'path' => 'v1alpha2/{+name}:cancel',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
@@ -246,7 +246,7 @@ class Google_Service_Apigateway extends Google_Service
                 ),
               ),
             ),'delete' => array(
-              'path' => 'v1alpha1/{+name}',
+              'path' => 'v1alpha2/{+name}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'name' => array(
@@ -256,7 +256,7 @@ class Google_Service_Apigateway extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'v1alpha1/{+name}',
+              'path' => 'v1alpha2/{+name}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -266,7 +266,7 @@ class Google_Service_Apigateway extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'v1alpha1/{+name}/operations',
+              'path' => 'v1alpha2/{+name}/operations',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(
@@ -278,13 +278,13 @@ class Google_Service_Apigateway extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),

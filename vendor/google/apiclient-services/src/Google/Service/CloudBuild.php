@@ -148,11 +148,7 @@ class Google_Service_CloudBuild extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'parent' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
+                'filter' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -160,7 +156,11 @@ class Google_Service_CloudBuild extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'filter' => array(
+                'parent' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -209,6 +209,10 @@ class Google_Service_CloudBuild extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'get' => array(
               'path' => 'v1/{+name}',
@@ -241,11 +245,11 @@ class Google_Service_CloudBuild extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'filter' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
+                'filter' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),

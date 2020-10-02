@@ -72,16 +72,9 @@ class Google_Service_Dfareporting_Resource_EventTags extends Google_Service_Reso
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string sortField Field by which to sort the list.
    * @opt_param string adId Select only event tags that belong to this ad.
-   * @opt_param string searchString Allows searching for objects by name or ID.
-   * Wildcards (*) are allowed. For example, "eventtag*2015" will return objects
-   * with names like "eventtag June 2015", "eventtag April 2015", or simply
-   * "eventtag 2015". Most of the searches also add wildcards implicitly at the
-   * start and the end of the search string. For example, a search string of
-   * "eventtag" will match objects with name "my eventtag", "eventtag 2015", or
-   * simply "eventtag".
-   * @opt_param string campaignId Select only event tags that belong to this
-   * campaign.
+   * @opt_param string sortOrder Order of sorted results.
    * @opt_param bool enabled Select only enabled event tags. What is considered
    * enabled or disabled depends on the definitionsOnly parameter. When
    * definitionsOnly is set to true, only the specified advertiser or campaign's
@@ -93,10 +86,6 @@ class Google_Service_Dfareporting_Resource_EventTags extends Google_Service_Reso
    * event tag types. Event tag types can be used to specify whether to use a
    * third-party pixel, a third-party JavaScript URL, or a third-party click-
    * through URL for either impression or click tracking.
-   * @opt_param string sortOrder Order of sorted results.
-   * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string advertiserId Select only event tags that belong to this
-   * advertiser.
    * @opt_param bool definitionsOnly Examine only the specified campaign or
    * advertiser's event tags for matching selector criteria. When set to false,
    * the parent advertiser and parent campaign of the specified ad or campaign is
@@ -104,7 +93,18 @@ class Google_Service_Dfareporting_Resource_EventTags extends Google_Service_Reso
    * examined as well, along with the enabledByDefault field. This parameter can
    * not be set to true when adId is specified as ads do not define their own even
    * tags.
+   * @opt_param string searchString Allows searching for objects by name or ID.
+   * Wildcards (*) are allowed. For example, "eventtag*2015" will return objects
+   * with names like "eventtag June 2015", "eventtag April 2015", or simply
+   * "eventtag 2015". Most of the searches also add wildcards implicitly at the
+   * start and the end of the search string. For example, a search string of
+   * "eventtag" will match objects with name "my eventtag", "eventtag 2015", or
+   * simply "eventtag".
+   * @opt_param string advertiserId Select only event tags that belong to this
+   * advertiser.
    * @opt_param string ids Select only event tags with these IDs.
+   * @opt_param string campaignId Select only event tags that belong to this
+   * campaign.
    * @return Google_Service_Dfareporting_EventTagsListResponse
    */
   public function listEventTags($profileId, $optParams = array())

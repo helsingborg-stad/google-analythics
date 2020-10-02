@@ -63,8 +63,8 @@ class Google_Service_Dfareporting_Resource_Sizes extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string ids Select only sizes with these IDs.
-   * @opt_param int width Select only sizes with this width.
    * @opt_param int height Select only sizes with this height.
+   * @opt_param int width Select only sizes with this width.
    * @opt_param bool iabStandard Select only IAB standard sizes.
    * @return Google_Service_Dfareporting_SizesListResponse
    */
